@@ -7,6 +7,7 @@ export type {
   GridKeyboardCommand,
   GridRow,
   GridRowMetadata,
+  GridRowMetadataPatch,
   GridRowState,
   GridSnapshot,
   GridValue,
@@ -28,4 +29,3 @@ export {
 export {
   normalizeGridKeyboardEvent,
 } from './keyboard';
-

@@ -1,0 +1,48 @@
+import type { ResolvedGridColumn } from '../../../transaction-grid';
+
+export const lookupRuntimeColumns: ResolvedGridColumn[] = [
+  {
+    id: 'lookupField',
+    label: 'Lookup Field',
+    kind: 'lookup',
+    visible: true,
+    editable: true,
+    required: true,
+    order: 10,
+    validationRefs: [],
+    cascadeRefs: [],
+  },
+  {
+    id: 'description',
+    label: 'Description',
+    kind: 'text',
+    visible: true,
+    editable: true,
+    required: false,
+    order: 20,
+    validationRefs: [],
+    cascadeRefs: [],
+  },
+  {
+    id: 'dependentValue',
+    label: 'Dependent Value',
+    kind: 'text',
+    visible: true,
+    editable: true,
+    required: false,
+    order: 30,
+    validationRefs: [],
+    cascadeRefs: [],
+  },
+  {
+    id: 'manualOverride',
+    label: 'Manual Override',
+    kind: 'text',
+    visible: true,
+    editable: true,
+    required: false,
+    order: 40,
+    validationRefs: [],
+    cascadeRefs: [],
+  },
+];

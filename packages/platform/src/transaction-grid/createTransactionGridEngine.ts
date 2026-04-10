@@ -1,6 +1,7 @@
 import type {
   CellPosition,
   GridKeyboardCommand,
+  GridRowMetadataPatch,
   GridRow,
   GridSnapshot,
   GridValue,
@@ -53,7 +54,7 @@ export function createTransactionGridEngine(
         continue;
       }
 
-      applyExternalValues(row, update.values);
+      applyExternalUpdate(row, update);
     }
 
     enforcePhantomInvariant();
@@ -291,7 +292,7 @@ export function createTransactionGridEngine(
         return;
       }
 
-      applyExternalValues(row, clonedUpdate.values);
+      applyExternalUpdate(row, clonedUpdate);
       materializePhantomIfNeeded(row);
       enforcePhantomInvariant();
     },
@@ -357,9 +358,15 @@ export function createTransactionGridEngine(
     });
   }
 
-  function applyExternalValues(row: GridRow, values: Record<TransactionElementId, GridValue>): void {
+  function applyExternalUpdate(row: GridRow, update: QueuedExternalUpdate): void {
+    const values = update.values;
+
     for (const [columnId, value] of Object.entries(values)) {
       row.values[columnId] = clone(value);
+    }
+
+    if (update.metadata) {
+      applyMetadataPatch(row, update.metadata);
     }
 
     if (Object.keys(values).length > 0) {
@@ -373,6 +380,29 @@ export function createTransactionGridEngine(
 
     if (row.metadata.isPhantom && !rowHasNonEmptyValues(row)) {
       row.values = clearEmptyValues(row.values);
+    }
+  }
+}
+
+function applyMetadataPatch(row: GridRow, patch: GridRowMetadataPatch): void {
+  mergeMetadataRecord(row.metadata.lookupSnapshots, patch.lookupSnapshots);
+  mergeMetadataRecord(row.metadata.autofill, patch.autofill);
+  mergeMetadataRecord(row.metadata.stale, patch.stale);
+}
+
+function mergeMetadataRecord<T>(
+  target: Partial<Record<TransactionElementId, T>>,
+  patch?: Partial<Record<TransactionElementId, T | undefined>>,
+): void {
+  if (!patch) {
+    return;
+  }
+
+  for (const [fieldId, value] of Object.entries(patch)) {
+    if (value === undefined) {
+      delete target[fieldId];
+    } else {
+      target[fieldId] = clone(value);
     }
   }
 }

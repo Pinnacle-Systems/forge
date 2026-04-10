@@ -14,6 +14,7 @@ export type {
   GridKeyboardCommand,
   GridRow,
   GridRowMetadata,
+  GridRowMetadataPatch,
   GridRowState,
   GridSnapshot,
   GridValue,
@@ -27,6 +28,35 @@ export type {
   TransactionGridEngineEvent,
   TransactionGridEngineOptions,
 } from './transaction-grid';
+export type {
+  ApplyLookupSelectionOptions,
+  CascadeDecision,
+  CascadeFieldRule,
+  CascadeMode,
+  CascadePlan,
+  CascadeResult,
+  LookupCacheKey,
+  LookupCacheOperation,
+  LookupCacheOptions,
+  LookupCacheStore,
+  LookupDiagnostic,
+  LookupEnrichRequest,
+  LookupMetadataPatch,
+  LookupOperationContext,
+  LookupProvider,
+  LookupProviderId,
+  LookupRequestOperation,
+  LookupResolveRequest,
+  LookupResult,
+  LookupRuntimeSelection,
+  LookupSearchRequest,
+  LookupSelectionResult,
+  LookupValidationIssue,
+  LookupValidationRequest,
+  LookupValidationResult,
+  RunLookupRequestOptions,
+  RunLookupRequestResult,
+} from './lookup-runtime';
 
 export {
   ManifestValidationError,
@@ -37,3 +67,10 @@ export {
   createTransactionGridEngine,
   normalizeGridKeyboardEvent,
 } from './transaction-grid';
+export {
+  CascadeEngine,
+  LookupCache,
+  LookupRegistry,
+  applyLookupSelection,
+  runLookupRequest,
+} from './lookup-runtime';

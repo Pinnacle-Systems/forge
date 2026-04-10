@@ -66,6 +66,13 @@ export interface QueuedExternalUpdate {
   values: Record<TransactionElementId, GridValue>;
   reason: 'external-update' | 'lookup-enrich';
   generation: number;
+  metadata?: GridRowMetadataPatch;
+}
+
+export interface GridRowMetadataPatch {
+  lookupSnapshots?: Partial<Record<TransactionElementId, LookupSnapshotValue | undefined>>;
+  autofill?: Partial<Record<TransactionElementId, AutofillAnnotation | undefined>>;
+  stale?: Partial<Record<TransactionElementId, StaleAnnotation | undefined>>;
 }
 
 export interface GridRowMetadata {
@@ -131,4 +138,3 @@ export interface TransactionGridEngine {
   applyExternalRowUpdate(rowId: string, update: QueuedExternalUpdate): void;
   applyValidation(rowId: string, validation: RowValidationState): void;
 }
-
