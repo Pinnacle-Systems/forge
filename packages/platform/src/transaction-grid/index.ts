@@ -1,11 +1,4 @@
 export type {
-  TransactionManifest,
-  TransactionInstanceConfig,
-  ResolvedTransactionDefinition,
-  MergeDiagnostic,
-  OverridePermissions,
-} from './runtime-definition';
-export type {
   AutofillAnnotation,
   CellPosition,
   CellValidationAnnotation,
@@ -26,14 +19,13 @@ export type {
   TransactionGridEngine,
   TransactionGridEngineEvent,
   TransactionGridEngineOptions,
-} from './transaction-grid';
+} from './types';
 
 export {
-  ManifestValidationError,
-  ConfigValidationWarning,
-  mergeTransactionDefinition,
-} from './runtime-definition';
-export {
   createTransactionGridEngine,
+} from './createTransactionGridEngine';
+
+export {
   normalizeGridKeyboardEvent,
-} from './transaction-grid';
+} from './keyboard';
+
