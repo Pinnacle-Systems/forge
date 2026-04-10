@@ -1,0 +1,9 @@
+{
+  "name": "@forge/platform",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./runtime-definition": "./src/runtime-definition/index.ts"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@forge/sales",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@forge/platform": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./transactions": "./src/transactions/index.ts"
+  }
+}

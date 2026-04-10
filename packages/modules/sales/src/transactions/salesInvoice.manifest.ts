@@ -1,0 +1,133 @@
+import type { TransactionManifest } from '@forge/platform/runtime-definition';
+
+export const salesInvoiceManifest: TransactionManifest = {
+  transactionType: 'sales.invoice',
+  version: '1.0.0',
+  title: 'Sales Invoice',
+  hooks: {
+    calculations: [
+      'sales.invoice.calculateLineTotal',
+      'sales.invoice.calculateSubtotal',
+      'sales.invoice.calculateTaxTotal',
+      'sales.invoice.calculateGrandTotal',
+    ],
+    validations: [
+      'sales.invoice.validateCustomer',
+      'sales.invoice.validateProduct',
+      'sales.invoice.validateDiscontinuedItems',
+    ],
+    lookupProviders: [
+      'sales.customerLookup',
+      'inventory.productLookup',
+      'sales.taxCodeLookup',
+    ],
+    persistence: 'sales.invoice.save',
+  },
+  header: {
+    fields: [
+      {
+        id: 'customer',
+        label: 'Customer',
+        kind: 'lookup',
+        order: 10,
+        required: true,
+        lookupProviderRef: 'sales.customerLookup',
+        validationRefs: ['sales.invoice.validateCustomer'],
+        overridePermissions: { label: true, visible: true, required: true, order: true },
+      },
+      {
+        id: 'invoiceDate',
+        label: 'Invoice Date',
+        kind: 'date',
+        order: 20,
+        required: true,
+        overridePermissions: { label: true, required: true, order: true },
+      },
+      {
+        id: 'reference',
+        label: 'Reference',
+        kind: 'text',
+        order: 30,
+        overridePermissions: { label: true, visible: true, order: true },
+      },
+    ],
+  },
+  grid: {
+    columns: [
+      {
+        id: 'product',
+        label: 'Product',
+        kind: 'lookup',
+        order: 10,
+        required: true,
+        lookupProviderRef: 'inventory.productLookup',
+        validationRefs: ['sales.invoice.validateProduct'],
+        overridePermissions: { label: true, width: true, order: true },
+      },
+      {
+        id: 'quantity',
+        label: 'Quantity',
+        kind: 'number',
+        order: 20,
+        required: true,
+        overridePermissions: { label: true, width: true, editable: true, required: true, order: true },
+      },
+      {
+        id: 'unitPrice',
+        label: 'Unit Price',
+        kind: 'currency',
+        order: 30,
+        required: true,
+        overridePermissions: { label: true, width: true, editable: true, order: true },
+      },
+      {
+        id: 'taxCode',
+        label: 'Tax Code',
+        kind: 'lookup',
+        order: 40,
+        lookupProviderRef: 'sales.taxCodeLookup',
+        overridePermissions: { label: true, width: true, order: true },
+      },
+      {
+        id: 'lineTotal',
+        label: 'Line Total',
+        kind: 'currency',
+        order: 50,
+        editable: false,
+        calculationRef: 'sales.invoice.calculateLineTotal',
+        overridePermissions: { label: true, width: true, visible: true, order: true },
+      },
+    ],
+  },
+  footer: {
+    fields: [
+      {
+        id: 'subtotal',
+        label: 'Subtotal',
+        kind: 'currency',
+        order: 10,
+        editable: false,
+        calculationRef: 'sales.invoice.calculateSubtotal',
+        overridePermissions: { label: true, visible: true, order: true },
+      },
+      {
+        id: 'taxTotal',
+        label: 'Tax Total',
+        kind: 'currency',
+        order: 20,
+        editable: false,
+        calculationRef: 'sales.invoice.calculateTaxTotal',
+        overridePermissions: { label: true, visible: true, order: true },
+      },
+      {
+        id: 'grandTotal',
+        label: 'Grand Total',
+        kind: 'currency',
+        order: 30,
+        editable: false,
+        calculationRef: 'sales.invoice.calculateGrandTotal',
+        overridePermissions: { label: true, visible: true, order: true },
+      },
+    ],
+  },
+};
