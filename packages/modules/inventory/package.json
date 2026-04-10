@@ -1,14 +1,12 @@
 {
-  "name": "@forge/sales",
+  "name": "@forge/inventory",
   "version": "0.1.0",
   "type": "module",
   "dependencies": {
-    "@forge/inventory": "workspace:*",
     "@forge/platform": "workspace:*"
   },
   "exports": {
     ".": "./src/index.ts",
-    "./transactions": "./src/transactions/index.ts",
     "./lookups": "./src/lookups/index.ts"
   }
 }

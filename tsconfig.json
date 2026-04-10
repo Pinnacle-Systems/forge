@@ -13,7 +13,9 @@
       "@forge/platform": ["packages/platform/src/index.ts"],
       "@forge/platform/*": ["packages/platform/src/*"],
       "@forge/sales": ["packages/modules/sales/src/index.ts"],
-      "@forge/sales/*": ["packages/modules/sales/src/*"]
+      "@forge/sales/*": ["packages/modules/sales/src/*"],
+      "@forge/inventory": ["packages/modules/inventory/src/index.ts"],
+      "@forge/inventory/*": ["packages/modules/inventory/src/*"]
     }
   },
   "include": ["packages/**/*.ts"]

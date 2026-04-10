@@ -18,8 +18,17 @@ importers:
         specifier: ^3.0.0
         version: 3.2.4
 
+  packages/modules/inventory:
+    dependencies:
+      '@forge/platform':
+        specifier: workspace:*
+        version: link:../../platform
+
   packages/modules/sales:
     dependencies:
+      '@forge/inventory':
+        specifier: workspace:*
+        version: link:../inventory
       '@forge/platform':
         specifier: workspace:*
         version: link:../../platform
