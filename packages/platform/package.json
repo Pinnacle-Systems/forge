@@ -6,6 +6,7 @@
     ".": "./src/index.ts",
     "./runtime-definition": "./src/runtime-definition/index.ts",
     "./transaction-grid": "./src/transaction-grid/index.ts",
-    "./lookup-runtime": "./src/lookup-runtime/index.ts"
+    "./lookup-runtime": "./src/lookup-runtime/index.ts",
+    "./transaction-shell": "./src/transaction-shell/index.ts"
   }
 }
