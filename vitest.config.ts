@@ -8,6 +8,7 @@ export default defineConfig({
       '@forge/platform/runtime-definition': fileURLToPath(new URL('./packages/platform/src/runtime-definition/index.ts', import.meta.url)),
       '@forge/platform/transaction-grid': fileURLToPath(new URL('./packages/platform/src/transaction-grid/index.ts', import.meta.url)),
       '@forge/platform': fileURLToPath(new URL('./packages/platform/src/index.ts', import.meta.url)),
+      '@forge/sales/calculations': fileURLToPath(new URL('./packages/modules/sales/src/calculations/index.ts', import.meta.url)),
       '@forge/sales/lookups': fileURLToPath(new URL('./packages/modules/sales/src/lookups/index.ts', import.meta.url)),
       '@forge/sales': fileURLToPath(new URL('./packages/modules/sales/src/index.ts', import.meta.url)),
       '@forge/inventory/lookups': fileURLToPath(new URL('./packages/modules/inventory/src/lookups/index.ts', import.meta.url)),
