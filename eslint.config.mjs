@@ -29,7 +29,7 @@ export default [
   },
   ...nxPlugin.configs['flat/base'],
   {
-    files: ['packages/**/*.ts'],
+    files: ['packages/**/*.ts', 'apps/**/*.ts', 'apps/**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {

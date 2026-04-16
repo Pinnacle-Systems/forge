@@ -1,7 +1,7 @@
 # Story 010: Module Boundary Enforcement
 
 ## Status
-ready-for-dev
+review
 
 ## Goal
 Add workspace-level enforcement so Forge module boundaries are validated by tooling, not just by convention and review.

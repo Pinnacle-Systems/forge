@@ -24,43 +24,6 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "@forge/inventory": [
-        {
-          "file": "packages/modules/inventory/package.json",
-          "hash": "10759165798264831014",
-          "deps": [
-            "@forge/platform"
-          ]
-        },
-        {
-          "file": "packages/modules/inventory/project.json",
-          "hash": "11463990683262035775"
-        },
-        {
-          "file": "packages/modules/inventory/src/index.ts",
-          "hash": "10797601239161050957"
-        },
-        {
-          "file": "packages/modules/inventory/src/lookups/__tests__/barcodeProductLookup.test.ts",
-          "hash": "8074366988464102591"
-        },
-        {
-          "file": "packages/modules/inventory/src/lookups/__tests__/productLookupProvider.test.ts",
-          "hash": "6426581137031044665"
-        },
-        {
-          "file": "packages/modules/inventory/src/lookups/index.ts",
-          "hash": "3944520184322139545"
-        },
-        {
-          "file": "packages/modules/inventory/src/lookups/productFixtures.ts",
-          "hash": "14294078401189566114"
-        },
-        {
-          "file": "packages/modules/inventory/src/lookups/productLookupProvider.ts",
-          "hash": "10451128482916074607"
-        }
-      ],
       "@forge/sales": [
         {
           "file": "packages/modules/sales/package.json",
@@ -399,6 +362,43 @@
         {
           "file": "packages/platform/src/transaction-shell/validation.ts",
           "hash": "14239054818301719428"
+        }
+      ],
+      "@forge/inventory": [
+        {
+          "file": "packages/modules/inventory/package.json",
+          "hash": "10759165798264831014",
+          "deps": [
+            "@forge/platform"
+          ]
+        },
+        {
+          "file": "packages/modules/inventory/project.json",
+          "hash": "11463990683262035775"
+        },
+        {
+          "file": "packages/modules/inventory/src/index.ts",
+          "hash": "10797601239161050957"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/__tests__/barcodeProductLookup.test.ts",
+          "hash": "8074366988464102591"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/__tests__/productLookupProvider.test.ts",
+          "hash": "6426581137031044665"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/index.ts",
+          "hash": "3944520184322139545"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/productFixtures.ts",
+          "hash": "14294078401189566114"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/productLookupProvider.ts",
+          "hash": "10451128482916074607"
         }
       ]
     },

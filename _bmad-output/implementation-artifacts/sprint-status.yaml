@@ -1,0 +1,52 @@
+# generated: 2026-04-16T14:19:01-04:00
+# last_updated: 2026-04-16T14:19:01-04:00
+# project: forge
+# project_key: FORGE
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts/stories
+#
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created, ready for development
+#   - in-progress: Developer actively working on implementation
+#   - review: Implementation complete, ready for review
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - This tracker was reconstructed from the current implementation artifacts and codebase state.
+# - Story statuses are conservatively set to `review` because code exists, but local lint/test/typecheck
+#   could not be executed in this environment due missing installed dev dependencies.
+# - Story keys below match the actual story filenames in `story_location`.
+
+generated: 2026-04-16T14:19:01-04:00
+last_updated: 2026-04-16T14:19:01-04:00
+project: forge
+project_key: FORGE
+tracking_system: file-system
+story_location: "_bmad-output/implementation-artifacts/stories"
+
+development_status:
+  epic-1: in-progress
+  001-runtime-transaction-definition-contract: review
+  002-sales-invoice-manifest-skeleton: review
+  003-transaction-grid-row-engine: review
+  004-lookup-runtime-foundation: review
+  005-sales-customer-product-lookup-providers: review
+  006-sales-invoice-calculations: review
+  007-validation-save-orchestration: review
+  008-sales-invoice-ui-assembly: review
+  009-e2e-acceptance-harness: review
+  010-boundary-enforcement: review
+  epic-1-retrospective: optional

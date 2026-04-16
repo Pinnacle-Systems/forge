@@ -79,6 +79,7 @@ export function createSalesInvoiceScreen(
     values: {},
     snapshots: {},
   };
+  const listeners = new Set<() => void>();
   let footerValues = {
     subtotal: 0,
     taxTotal: 0,
@@ -150,6 +151,14 @@ export function createSalesInvoiceScreen(
           state: shell.getState(),
           validationSummary,
         },
+      };
+    },
+
+    subscribe(listener: () => void): () => void {
+      listeners.add(listener);
+
+      return () => {
+        listeners.delete(listener);
       };
     },
 
@@ -255,6 +264,7 @@ export function createSalesInvoiceScreen(
 
     moveFocus(rowId: string, fieldId: string): void {
       gridEngine.moveFocus({ rowId, columnId: fieldId });
+      emitChange();
     },
 
     async dispatchGridCommand(command) {
@@ -280,15 +290,22 @@ export function createSalesInvoiceScreen(
     },
 
     async requestSave(): Promise<SaveRequestResult> {
-      return await shell.requestSave();
+      const result = await shell.requestSave();
+      emitChange();
+
+      return result;
     },
 
     async confirmSave(): Promise<SaveRequestResult> {
-      return await shell.confirmSave();
+      const result = await shell.confirmSave();
+      emitChange();
+
+      return result;
     },
 
     cancelSave(): void {
       shell.cancelSave();
+      emitChange();
     },
   };
 
@@ -448,6 +465,13 @@ export function createSalesInvoiceScreen(
     footerValues = calculateSalesInvoiceFooterTotals(
       recalculatedSnapshot.rows.map(toSalesInvoiceRow),
     );
+    emitChange();
+  }
+
+  function emitChange(): void {
+    for (const listener of listeners) {
+      listener();
+    }
   }
 }
 

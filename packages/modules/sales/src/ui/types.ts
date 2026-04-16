@@ -87,6 +87,7 @@ export interface SalesInvoiceScreenOptions {
 
 export interface SalesInvoiceScreen {
   getViewModel(): SalesInvoiceScreenViewModel;
+  subscribe(listener: () => void): () => void;
   searchHeaderLookup(fieldId: string, query: string): Promise<LookupResult[]>;
   selectHeaderLookup(fieldId: string, entityId: string): Promise<void>;
   setHeaderValue(fieldId: string, value: GridValue): void;

@@ -1,5 +1,8 @@
 # Story 009: End-to-End Acceptance Harness
 
+## Status
+review
+
 ## Goal
 Add acceptance coverage proving the Sales Invoice vertical slice validates the Forge platform contracts end to end.
 

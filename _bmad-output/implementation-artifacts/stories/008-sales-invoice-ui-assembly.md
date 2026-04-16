@@ -1,5 +1,8 @@
 # Story 008: Sales Invoice UI Assembly
 
+## Status
+review
+
 ## Goal
 Compose the runtime definition, TransactionShell, TransactionGrid, lookup runtime, calculations, validation, and save orchestration into a usable Sales Invoice screen.
 

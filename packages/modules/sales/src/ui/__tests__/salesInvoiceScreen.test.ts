@@ -115,6 +115,23 @@ describe('createSalesInvoiceScreen', () => {
     expect(confirmed).toEqual({ status: 'saved' });
     expect(saveHandler).toHaveBeenCalledTimes(1);
   });
+
+  it('notifies subscribers when the screen view model changes', async () => {
+    const screen = createSalesInvoiceScreen();
+    const listener = vi.fn();
+    const unsubscribe = screen.subscribe(listener);
+    const rowId = screen.getViewModel().grid.rows[0].id;
+
+    screen.setHeaderValue('invoiceDate', '2026-04-10');
+    await screen.selectRowLookup(rowId, 'product', 'product-widget');
+    const callsBeforeUnsubscribe = listener.mock.calls.length;
+    unsubscribe();
+    screen.editCell(rowId, 'quantity', 2);
+
+    expect(listener).toHaveBeenCalled();
+    expect(callsBeforeUnsubscribe).toBeGreaterThan(0);
+    expect(listener).toHaveBeenCalledTimes(callsBeforeUnsubscribe);
+  });
 });
 
 function cellValue(

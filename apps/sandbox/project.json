@@ -1,0 +1,15 @@
+{
+  "name": "@forge/sandbox",
+  "root": "apps/sandbox",
+  "sourceRoot": "apps/sandbox/src",
+  "projectType": "application",
+  "tags": ["scope:tooling", "type:app"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/sandbox/**/*.ts", "apps/sandbox/**/*.tsx"]
+      }
+    }
+  }
+}

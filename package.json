@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "lint": "NX_DAEMON=false nx run-many -t lint",
-    "lint:eslint": "eslint packages --ext .ts",
+    "lint:eslint": "eslint packages apps --ext .ts,.tsx",
     "lint:boundaries": "NX_DAEMON=false nx run-many -t lint",
+    "sandbox:dev": "pnpm --filter @forge/sandbox dev",
+    "sandbox:build": "pnpm --filter @forge/sandbox build",
+    "sandbox:preview": "pnpm --filter @forge/sandbox preview",
     "test:acceptance": "vitest run packages/modules/sales/src/ui/__tests__/*.acceptance.test.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
