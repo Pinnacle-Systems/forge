@@ -22,12 +22,12 @@ Implement module-owned lookup providers and deterministic fixture-backed service
 - UI and providers consume resolved definitions and provider contracts; they must not read raw manifests or raw instance config.
 - Product provider ID must be `inventory.product`.
 - Sales customer provider ID for this slice is `sales.customer`.
-- Existing manifest hook refs are `sales.customerLookup` and `inventory.productLookup`; this story must provide an explicit mapping from hook refs to concrete provider IDs rather than changing the manifest just to satisfy provider IDs.
+- Manifest lookup refs must align directly with concrete provider IDs; this story must not introduce an extra ref-to-provider translation layer.
 - Product search supports SKU, product name, and barcode.
 - Product resolve supports exact product ID lookup.
 - Barcode is an input path through product `search` or `resolve` followed by the same lookup selection/enrich pipeline; it must not become grid-specific business logic.
 - Lookup selection creates snapshot values in the row/header target.
-- Product enrich may use customer and quantity context to return unit price and tax code values; it must remain async/provider-owned, not calculation logic.
+- Product enrich returns product master data only. Customer pricing and quantity-break pricing are transaction-level calculations owned by the consuming module, not the lookup provider.
 - Save-time validation rechecks product status and validity using provider `validate`; cached lookup data is never authoritative for save.
 - Cascade behavior defaults to preserve. Manual price override preservation belongs to lookup/cascade metadata and later calculation behavior, not provider-side mutation of grid internals.
 - No specs, ADRs, or PRD files are modified by this story.
@@ -37,26 +37,27 @@ Implement module-owned lookup providers and deterministic fixture-backed service
 - Add an Inventory module package with a product lookup provider using provider ID `inventory.product`.
 - Add deterministic in-memory fixture services for customers and products so tests behave like backend-backed providers without external integration.
 - Add provider registration/assembly code that registers Sales and Inventory providers with `LookupRegistry`.
-- Add provider ID mapping for manifest hook refs:
-  - `sales.customerLookup` -> `sales.customer`
-  - `inventory.productLookup` -> `inventory.product`
+- Keep manifest lookup refs directly resolvable:
+  - `sales.customer`
+  - `inventory.product`
+  - `sales.taxCode`
 - Implement product search by SKU, product name, and barcode.
 - Implement product exact ID resolve.
-- Implement product enrich output for product display snapshot values, unit price, tax code, and status/validity metadata needed by save validation.
+- Implement product enrich output for product display snapshot values, base unit price, tax code, and status/validity metadata needed by save validation.
 - Implement product validation output for discontinued products and validity date windows.
 - Add focused unit tests for customer provider behavior, product provider behavior, barcode flow, registration, and boundary compliance.
 
 ## Out of Scope
 - Full inventory module behavior beyond product lookup fixtures.
 - Real backend, network transport, persistence, database schema, or migrations.
-- Tax code lookup provider.
+- Customer-specific pricing and quantity-break pricing logic.
 - Sales Invoice calculations, subtotal/tax/grand-total orchestration, or save orchestration UI.
 - Rendering lookup popovers, barcode scanner UI, stale indicators, or cascade prompts.
 - Generic header lookup selection runtime if it does not already exist. Customer provider tests should prove snapshot-ready lookup values; UI/header application can be assembled in a later shell story.
 - Changing manifest contracts, instance config contracts, merge engine behavior, or platform lookup runtime semantics unless a small missing type export blocks provider implementation.
 
 ## Dependencies
-- Story 002: Sales Invoice Manifest Skeleton is complete and exposes `salesInvoiceManifest` with lookup hook refs `sales.customerLookup` and `inventory.productLookup`.
+- Story 002: Sales Invoice Manifest Skeleton is complete and exposes `salesInvoiceManifest` with lookup refs `sales.customer`, `inventory.product`, and `sales.taxCode`.
 - Story 004: Lookup Runtime Foundation is complete and exports `LookupProvider`, request/response types, `LookupRegistry`, `runLookupRequest`, and `applyLookupSelection` from `@forge/platform/lookup-runtime`.
 - Story 003: TransactionGrid Row Engine is complete if integration tests need row snapshots for product selection/barcode fill.
 
@@ -153,25 +154,30 @@ export type { InventoryProductFixture } from './productFixtures';
 
 Export the same symbols from `packages/modules/inventory/src/index.ts`.
 
-## Provider IDs and Hook Reference Mapping
+## Provider IDs and Hook Reference Alignment
 - `salesCustomerLookupProviderId` must equal `sales.customer`.
 - `inventoryProductLookupProviderId` must equal `inventory.product`.
+- `salesTaxCodeLookupProviderId` must equal `sales.taxCode`.
 - `salesInvoiceLookupProviderRefs` must be a deterministic object:
 
 ```ts
 export const salesInvoiceLookupProviderRefs = {
   customer: {
-    manifestRef: 'sales.customerLookup',
+    manifestRef: 'sales.customer',
     providerId: salesCustomerLookupProviderId,
   },
   product: {
-    manifestRef: 'inventory.productLookup',
+    manifestRef: 'inventory.product',
     providerId: inventoryProductLookupProviderId,
+  },
+  taxCode: {
+    manifestRef: 'sales.taxCode',
+    providerId: salesTaxCodeLookupProviderId,
   },
 } as const;
 ```
 
-- `registerSalesInvoiceLookupProviders(registry)` must register both concrete providers with the supplied `LookupRegistry`.
+- `registerSalesInvoiceLookupProviders(registry)` must register customer, product, and tax-code providers with the supplied `LookupRegistry`.
 - Registration must not mutate `salesInvoiceManifest`.
 - Registration must not hide duplicate-provider errors from `LookupRegistry`; let the platform runtime's deterministic behavior surface duplicates.
 
@@ -232,7 +238,7 @@ Product `LookupResult.values` from search/resolve must include:
 - `product`: product ID
 - `productSku`: SKU
 - `productName`: display name
-- `unitPrice`: base unit price unless enrich has more specific context
+- `unitPrice`: base unit price
 - `taxCode`: default tax code
 
 Product metadata must include:
@@ -267,8 +273,7 @@ Product metadata must include:
   - `productName`
   - `unitPrice`
   - `taxCode`
-- Enrich may use `context.headerValues.customer`, `context.rowValues.quantity`, and `snapshotValues` to apply customer-specific pricing and quantity price breaks.
-- If both customer-specific pricing and quantity price breaks apply, choose one deterministic precedence and document it in `productLookupProvider.ts` with a short comment. Recommended precedence: customer-specific price override first, then quantity price break, then base unit price.
+- Enrich must remain limited to product master data and must not use transaction header or row context to compute pricing.
 - Enrich must not calculate `lineTotal`, footer totals, or tax totals.
 - `validate({ entityId, snapshotValues, context })` rechecks current fixture data by exact product ID and returns:
   - `valid: false` with an `error` issue code `PRODUCT_NOT_FOUND` when missing;
@@ -315,8 +320,7 @@ For the barcode integration test, use the existing `createTransactionGridEngine`
 - returns `undefined` for unknown product ID.
 - emits product snapshot values for `product`, `productSku`, `productName`, `unitPrice`, and `taxCode`.
 - enrich returns base unit price with no customer/quantity context.
-- enrich applies customer-specific pricing when `context.headerValues.customer` references a fixture customer with a price override.
-- enrich applies quantity pricing when quantity meets a price break and no customer-specific override takes precedence.
+- enrich ignores transaction-specific pricing context and still returns base product master data.
 - validation returns `PRODUCT_DISCONTINUED` for discontinued fixture products.
 - validation returns `PRODUCT_NOT_YET_VALID` and `PRODUCT_EXPIRED` for validity-window failures.
 - validation returns valid for an active product inside the invoice date window.
@@ -329,9 +333,9 @@ For the barcode integration test, use the existing `createTransactionGridEngine`
 - the test imports only module providers plus platform lookup/grid APIs; it must not depend on barcode-specific platform code.
 
 ### `salesLookupRegistration.test.ts`
-- `registerSalesInvoiceLookupProviders(new LookupRegistry())` registers `sales.customer` and `inventory.product`.
+- `registerSalesInvoiceLookupProviders(new LookupRegistry())` registers `sales.customer`, `inventory.product`, and `sales.taxCode`.
 - manifest hook refs map to concrete provider IDs using `salesInvoiceLookupProviderRefs`.
-- the Sales Invoice manifest still references hook refs (`sales.customerLookup`, `inventory.productLookup`) and is not mutated by registration.
+- the Sales Invoice manifest still references concrete provider IDs (`sales.customer`, `inventory.product`, `sales.taxCode`) and is not mutated by registration.
 - duplicate registration behavior is delegated to `LookupRegistry`.
 
 ## Step-by-Step Implementation Tasks
@@ -352,20 +356,16 @@ For the barcode integration test, use the existing `createTransactionGridEngine`
 
 ## Implementation Notes
 - Keep fixtures immutable from provider callers. Return cloned lookup results or construct fresh result objects so tests cannot mutate shared fixture state.
-- Prefer small pure helpers such as `toCustomerResult`, `toProductResult`, `normalizeQuery`, `isWithinValidityWindow`, and `selectUnitPrice`.
+- Prefer small pure helpers such as `toCustomerResult`, `toProductResult`, `normalizeQuery`, and `isWithinValidityWindow`.
 - Provider factories may accept optional fixture arrays for tests:
 
 ```ts
 createInventoryProductLookupProvider({
   products?: InventoryProductFixture[];
-  customerPricing?: Array<{
-    customerId: string;
-    priceOverrides: Record<string, number>;
-  }>;
 })
 ```
 
-Do not make `@forge/inventory` depend on `@forge/sales`; use a tiny local pricing context type for customer-specific price overrides.
+Do not make `@forge/inventory` depend on `@forge/sales`; Sales-owned pricing behavior belongs in Sales module calculations.
 - `@forge/sales` may depend on `@forge/inventory` for vertical-slice registration because Sales Invoice assembly composes the product provider. `@forge/inventory` must not depend on `@forge/sales`.
 - If TypeScript path/workspace configuration does not automatically recognize the new Inventory package, make the smallest package/export update needed and document it in the Dev Agent Record.
 - Do not add `lineTotal`, `subtotal`, `taxTotal`, or `grandTotal` to provider output. Story 006 owns calculations.
@@ -387,7 +387,7 @@ Do not make `@forge/inventory` depend on `@forge/sales`; use a tiny local pricin
 - Product enrich returns product identity/display values, unit price, and tax code without performing invoice calculations.
 - Barcode scan/fill scenario is covered through the product lookup/enrich pipeline and row-engine lookup snapshot path.
 - Product save-time validation can return discontinued and validity-date errors from current fixture state.
-- Sales Invoice lookup registration maps manifest hook refs to concrete provider IDs without mutating the manifest.
+- Sales Invoice lookup registration keeps manifest refs aligned with concrete provider IDs without mutating the manifest.
 - No platform code branches on product, customer, tax, barcode, or invoice semantics.
 - Tests cover search, resolve, enrich, barcode flow, snapshots, registration, and validation conditions.
 
@@ -405,8 +405,8 @@ Do not make `@forge/inventory` depend on `@forge/sales`; use a tiny local pricin
 
 ### Implementation Plan
 - Implemented fixture-backed Sales customer and Inventory product providers against the current `LookupProvider` runtime contract.
-- Kept Inventory independent from Sales by accepting local `customerPricing` context in the product provider factory.
-- Composed Sales Invoice lookup registration in the Sales module, mapping manifest hook refs to concrete provider IDs without mutating the manifest.
+- Kept Inventory independent from Sales by limiting the product provider to product-master lookup behavior.
+- Composed Sales Invoice lookup registration in the Sales module with manifest refs aligned to concrete provider IDs without mutating the manifest.
 - Used platform `createTransactionGridEngine` and `applyLookupSelection` for the barcode row-fill integration test.
 
 ### Debug Log
@@ -416,8 +416,8 @@ Do not make `@forge/inventory` depend on `@forge/sales`; use a tiny local pricin
 
 ### Completion Notes
 - Added deterministic customer fixtures and `sales.customer` lookup provider with search, resolve, snapshot-ready values, and validation.
-- Added new `@forge/inventory` package with `inventory.product` lookup provider supporting SKU/name/barcode search, exact resolve, enrichment, customer/quantity pricing precedence, and save-time validation issue codes.
-- Added Sales Invoice lookup registration with deterministic hook-ref to provider-ID mapping.
+- Added new `@forge/inventory` package with `inventory.product` lookup provider supporting SKU/name/barcode search, exact resolve, product-master enrichment, and save-time validation issue codes.
+- Added Sales Invoice lookup registration with directly resolvable provider IDs and a `sales.taxCode` provider.
 - Added barcode integration coverage proving barcode fill goes through product provider enrichment and platform lookup selection snapshot metadata.
 - Verified with `pnpm test` and `pnpm typecheck`.
 

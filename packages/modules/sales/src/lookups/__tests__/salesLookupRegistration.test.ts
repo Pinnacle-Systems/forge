@@ -14,17 +14,22 @@ describe('registerSalesInvoiceLookupProviders', () => {
 
     expect(registry.get('sales.customer')?.id).toBe('sales.customer');
     expect(registry.get('inventory.product')?.id).toBe('inventory.product');
+    expect(registry.get('sales.taxCode')?.id).toBe('sales.taxCode');
   });
 
   it('maps manifest hook refs to concrete provider IDs', () => {
     expect(salesInvoiceLookupProviderRefs).toEqual({
       customer: {
-        manifestRef: 'sales.customerLookup',
+        manifestRef: 'sales.customer',
         providerId: 'sales.customer',
       },
       product: {
-        manifestRef: 'inventory.productLookup',
+        manifestRef: 'inventory.product',
         providerId: 'inventory.product',
+      },
+      taxCode: {
+        manifestRef: 'sales.taxCode',
+        providerId: 'sales.taxCode',
       },
     });
   });
@@ -35,8 +40,9 @@ describe('registerSalesInvoiceLookupProviders', () => {
     registerSalesInvoiceLookupProviders(new LookupRegistry());
 
     expect(salesInvoiceManifest.hooks?.lookupProviders).toEqual(before);
-    expect(salesInvoiceManifest.hooks?.lookupProviders).toContain('sales.customerLookup');
-    expect(salesInvoiceManifest.hooks?.lookupProviders).toContain('inventory.productLookup');
+    expect(salesInvoiceManifest.hooks?.lookupProviders).toContain('sales.customer');
+    expect(salesInvoiceManifest.hooks?.lookupProviders).toContain('inventory.product');
+    expect(salesInvoiceManifest.hooks?.lookupProviders).toContain('sales.taxCode');
   });
 
   it('delegates duplicate provider behavior to LookupRegistry', () => {

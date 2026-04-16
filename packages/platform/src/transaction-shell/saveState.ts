@@ -14,6 +14,7 @@ export function createTransactionShell(options: TransactionShellOptions): Transa
   let state: SaveLifecycleState = 'idle';
   let validationSummary: ValidationSummary = { isValid: true, hasWarnings: false, issues: [] };
   const subscribers: Set<(state: SaveLifecycleState) => void> = new Set();
+  const getHeaderValues = () => options.getHeaderValues?.() ?? {};
 
   const setState = (newState: SaveLifecycleState) => {
     state = newState;
@@ -26,7 +27,7 @@ export function createTransactionShell(options: TransactionShellOptions): Transa
     const snapshot = options.gridEngine.getSnapshot();
     const saveContext: SaveValidationContext = {
       manifest: options.manifest,
-      headerValues: {}, // Stub, would come from header orchestrator
+      headerValues: getHeaderValues(),
       rows: snapshot.rows,
     };
 
@@ -49,8 +50,15 @@ export function createTransactionShell(options: TransactionShellOptions): Transa
     setState('validating');
 
     // 1. Sync validations
-    const rowIssues: Record<string, ValidationIssue[]> = {};
     const snapshot = options.gridEngine.getSnapshot();
+    const headerValues = getHeaderValues();
+    const headerIssues = options.validationHooks.header
+      ? options.validationHooks.header.flatMap((hook) => hook({
+        manifest: options.manifest,
+        headerValues,
+      }))
+      : [];
+    const rowIssues: Record<string, ValidationIssue[]> = {};
     
     if (options.validationHooks.row) {
       for (const row of snapshot.rows) {
@@ -59,17 +67,29 @@ export function createTransactionShell(options: TransactionShellOptions): Transa
            rowIssues[row.id].push(...hook({
              row,
              manifest: options.manifest,
-             headerValues: {},
+             headerValues,
            }));
         }
       }
     }
 
+    const saveContext: SaveValidationContext = {
+      manifest: options.manifest,
+      headerValues,
+      rows: snapshot.rows,
+    };
+    const footerIssues = options.validationHooks.footer
+      ? options.validationHooks.footer.flatMap((hook) => hook(saveContext))
+      : [];
+    const crossFieldIssues = options.validationHooks.crossField
+      ? options.validationHooks.crossField.flatMap((hook) => hook(saveContext))
+      : [];
+
     validationSummary = aggregateValidations({
-      headerIssues: [],
+      headerIssues,
       rowIssues,
-      footerIssues: [],
-      crossFieldIssues: [],
+      footerIssues,
+      crossFieldIssues,
     });
 
     if (!validationSummary.isValid) {
@@ -79,12 +99,6 @@ export function createTransactionShell(options: TransactionShellOptions): Transa
 
     // 2. Async validations
     if (options.validationHooks.save) {
-      const saveContext: SaveValidationContext = {
-        manifest: options.manifest,
-        headerValues: {},
-        rows: snapshot.rows,
-      };
-
       for (const asyncHook of options.validationHooks.save) {
         const issues = await asyncHook(saveContext);
         validationSummary.issues.push(...issues);

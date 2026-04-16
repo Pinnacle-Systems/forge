@@ -153,4 +153,39 @@ describe('createTransactionGridEngine', () => {
     expect(nextSnapshot.rows[0].metadata.validation.row).toEqual([]);
     expect(nextSnapshot.columns[0].label).toBe('Product');
   });
+
+  it('marks manual edits to autofilled cells as preserved overrides in row metadata', () => {
+    const engine = createTransactionGridEngine({
+      columns: resolvedSalesInvoiceGridColumns,
+      rows: [{ product: 'product-widget', unitPrice: 10 }],
+    });
+    const rowId = engine.getSnapshot().rows[0].id;
+
+    engine.applyExternalRowUpdate(rowId, {
+      values: { unitPrice: 10 },
+      reason: 'lookup-enrich',
+      generation: 0,
+      metadata: {
+        autofill: {
+          unitPrice: {
+            sourceColumnId: 'product',
+            mode: 'cascade',
+          },
+        },
+      },
+    });
+
+    engine.moveFocus({ rowId, columnId: 'unitPrice' });
+    engine.beginEdit();
+    engine.updateEditBuffer(12);
+    engine.commitEdit();
+
+    const snapshot = engine.getSnapshot();
+    expect(snapshot.rows[0].metadata.autofill.unitPrice).toEqual({
+      sourceColumnId: 'product',
+      mode: 'cascade',
+      preservedManualOverride: true,
+    });
+    expect(snapshot.rows[0].metadata.stale.unitPrice).toBeUndefined();
+  });
 });

@@ -37,8 +37,8 @@ export function validateManifest(manifest: TransactionManifest): void {
     issues.push('transactionType is required');
   }
 
-  if (!isNonEmptyString(rawManifest.version)) {
-    issues.push('version is required');
+  if (!isNonEmptyString(rawManifest.schemaVersion)) {
+    issues.push('schemaVersion is required');
   }
 
   if (!isNonEmptyString(rawManifest.title)) {

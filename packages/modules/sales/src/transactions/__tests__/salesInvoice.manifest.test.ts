@@ -9,7 +9,7 @@ describe('salesInvoiceManifest', () => {
 
     expect(resolved).toMatchObject({
       transactionType: 'sales.invoice',
-      version: '1.0.0',
+      schemaVersion: '1.0.0',
       title: 'Sales Invoice',
       diagnostics: [],
     });
@@ -36,11 +36,11 @@ describe('salesInvoiceManifest', () => {
     const resolved = mergeTransactionDefinition(salesInvoiceManifest);
 
     expect(resolved.header.fields.find((field) => field.id === 'customer')?.lookupProviderRef)
-      .toBe('sales.customerLookup');
+      .toBe('sales.customer');
     expect(resolved.grid.columns.find((column) => column.id === 'product')?.lookupProviderRef)
-      .toBe('inventory.productLookup');
+      .toBe('inventory.product');
     expect(resolved.grid.columns.find((column) => column.id === 'taxCode')?.lookupProviderRef)
-      .toBe('sales.taxCodeLookup');
+      .toBe('sales.taxCode');
     expect(resolved.grid.columns.find((column) => column.id === 'lineTotal')?.calculationRef)
       .toBe('sales.invoice.calculateLineTotal');
     expect(resolved.footer.fields.find((field) => field.id === 'subtotal')?.calculationRef)
@@ -62,9 +62,9 @@ describe('salesInvoiceManifest', () => {
         'sales.invoice.validateDiscontinuedItems',
       ],
       lookupProviders: [
-        'sales.customerLookup',
-        'inventory.productLookup',
-        'sales.taxCodeLookup',
+        'sales.customer',
+        'inventory.product',
+        'sales.taxCode',
       ],
       persistence: 'sales.invoice.save',
     });
@@ -73,6 +73,7 @@ describe('salesInvoiceManifest', () => {
   it('applies authorized presentation overrides without changing business hooks', () => {
     const config: TransactionInstanceConfig = {
       transactionType: 'sales.invoice',
+      targetManifestVersion: '1.0.0',
       overrides: {
         reference: {
           label: 'Customer Reference',
@@ -123,6 +124,7 @@ describe('salesInvoiceManifest', () => {
   it('ignores attempts to alter Sales Invoice business behavior', () => {
     const config = {
       transactionType: 'sales.invoice',
+      targetManifestVersion: '1.0.0',
       overrides: {
         lineTotal: {
           calculationRef: 'customer.lineTotalFormula',
@@ -203,11 +205,11 @@ describe('salesInvoiceManifest', () => {
     expect(customer).toMatchObject({
       id: 'customer',
       kind: 'lookup',
-      lookupProviderRef: 'sales.customerLookup',
+      lookupProviderRef: 'sales.customer',
       validationRefs: ['sales.invoice.validateCustomer'],
     });
-    expect(product?.lookupProviderRef).toBe('inventory.productLookup');
-    expect(taxCode?.lookupProviderRef).toBe('sales.taxCodeLookup');
+    expect(product?.lookupProviderRef).toBe('inventory.product');
+    expect(taxCode?.lookupProviderRef).toBe('sales.taxCode');
     expect(resolved.hooks.persistence).toBe('sales.invoice.save');
   });
 });

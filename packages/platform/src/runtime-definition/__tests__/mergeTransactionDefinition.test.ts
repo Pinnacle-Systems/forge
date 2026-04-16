@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { TransactionInstanceConfig, TransactionManifest } from '../types';
+import { ConfigVersionMismatchError } from '../errors';
 import { mergeTransactionDefinition } from '../mergeTransactionDefinition';
 import { salesInvoiceManifest } from './fixtures/salesInvoiceManifest.fixture';
 import { validPresentationConfig } from './fixtures/instanceConfigs.fixture';
@@ -9,7 +10,7 @@ describe('mergeTransactionDefinition', () => {
     const resolved = mergeTransactionDefinition(salesInvoiceManifest);
 
     expect(resolved.transactionType).toBe('sales.invoice');
-    expect(resolved.version).toBe('1.0.0');
+    expect(resolved.schemaVersion).toBe('1.0.0');
     expect(resolved.title).toBe('Sales Invoice');
     expect(resolved.header.fields.map((field) => field.id)).toEqual([
       'customer',
@@ -85,9 +86,9 @@ describe('mergeTransactionDefinition', () => {
 
     expect(resolved.hooks).toEqual(salesInvoiceManifest.hooks);
     expect(resolved.header.fields.find((field) => field.id === 'customer')?.lookupProviderRef)
-      .toBe('sales.customerLookup');
+      .toBe('sales.customer');
     expect(resolved.grid.columns.find((column) => column.id === 'product')?.lookupProviderRef)
-      .toBe('inventory.productLookup');
+      .toBe('inventory.product');
     expect(resolved.grid.columns.find((column) => column.id === 'lineTotal')?.calculationRef)
       .toBe('sales.invoice.calculateLineTotal');
     expect(resolved.footer.fields.find((field) => field.id === 'grandTotal')?.calculationRef)
@@ -112,6 +113,7 @@ describe('mergeTransactionDefinition', () => {
   it('ignores invalid config entries while applying valid entries', () => {
     const config = {
       transactionType: 'sales.invoice',
+      targetManifestVersion: '1.0.0',
       overrides: {
         reference: {
           label: 'PO Reference',
@@ -130,5 +132,13 @@ describe('mergeTransactionDefinition', () => {
       targetId: 'reference',
       property: 'calculationRef',
     });
+  });
+
+  it('fails hard when config targets an incompatible manifest version', () => {
+    expect(() => mergeTransactionDefinition(salesInvoiceManifest, {
+      transactionType: 'sales.invoice',
+      targetManifestVersion: '2.0.0',
+      overrides: {},
+    })).toThrow(ConfigVersionMismatchError);
   });
 });

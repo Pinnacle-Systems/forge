@@ -46,6 +46,20 @@ export function validateInstanceConfig(
     ];
   }
 
+  const targetManifestVersion = rawConfig.targetManifestVersion;
+
+  if (
+    targetManifestVersion !== undefined
+    && targetManifestVersion !== manifest.schemaVersion
+  ) {
+    return [
+      warning(
+        'MANIFEST_VERSION_MISMATCH',
+        `Config targetManifestVersion "${String(targetManifestVersion)}" does not match manifest schemaVersion "${manifest.schemaVersion}"`,
+      ),
+    ];
+  }
+
   const rawOverrides = rawConfig.overrides;
 
   if (rawOverrides === undefined) {

@@ -80,7 +80,7 @@ Implement `salesInvoiceManifest` as a `TransactionManifest`:
 ```ts
 export const salesInvoiceManifest: TransactionManifest = {
   transactionType: 'sales.invoice',
-  version: '1.0.0',
+  schemaVersion: '1.0.0',
   title: 'Sales Invoice',
   hooks: {
     calculations: [
@@ -95,9 +95,9 @@ export const salesInvoiceManifest: TransactionManifest = {
       'sales.invoice.validateDiscontinuedItems',
     ],
     lookupProviders: [
-      'sales.customerLookup',
-      'inventory.productLookup',
-      'sales.taxCodeLookup',
+      'sales.customer',
+      'inventory.product',
+      'sales.taxCode',
     ],
     persistence: 'sales.invoice.save',
   },
@@ -109,7 +109,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         kind: 'lookup',
         order: 10,
         required: true,
-        lookupProviderRef: 'sales.customerLookup',
+        lookupProviderRef: 'sales.customer',
         validationRefs: ['sales.invoice.validateCustomer'],
         overridePermissions: { label: true, visible: true, required: true, order: true },
       },
@@ -138,7 +138,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         kind: 'lookup',
         order: 10,
         required: true,
-        lookupProviderRef: 'inventory.productLookup',
+        lookupProviderRef: 'inventory.product',
         validationRefs: ['sales.invoice.validateProduct'],
         overridePermissions: { label: true, width: true, order: true },
       },
@@ -163,7 +163,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         label: 'Tax Code',
         kind: 'lookup',
         order: 40,
-        lookupProviderRef: 'sales.taxCodeLookup',
+        lookupProviderRef: 'sales.taxCode',
         overridePermissions: { label: true, width: true, order: true },
       },
       {
@@ -232,7 +232,7 @@ Use the narrowest permissions that still support presentation customization:
 ## Step-by-Step Implementation Tasks
 - [x] Create `packages/modules/sales/src/transactions/` and establish `salesInvoice.manifest.ts` as the Sales module transaction manifest naming convention.
 - [x] Add `packages/modules/sales/src/transactions/index.ts` that exports `salesInvoiceManifest`.
-- [x] Define Sales Invoice transaction identity: `transactionType: 'sales.invoice'`, `version: '1.0.0'`, and `title: 'Sales Invoice'`.
+- [x] Define Sales Invoice transaction identity: `transactionType: 'sales.invoice'`, `schemaVersion: '1.0.0'`, and `title: 'Sales Invoice'`.
 - [x] Add header field definitions for `customer`, `invoiceDate`, and `reference` with stable IDs, labels, kinds, orders, and required flags.
 - [x] Add grid column definitions for `product`, `quantity`, `unitPrice`, `taxCode`, and `lineTotal` with stable IDs, labels, kinds, orders, editability, and required flags.
 - [x] Add footer summary definitions for `subtotal`, `taxTotal`, and `grandTotal` as calculated, non-editable output fields.
@@ -251,7 +251,7 @@ Add tests in `packages/modules/sales/src/transactions/__tests__/salesInvoice.man
 - `mergeTransactionDefinition(salesInvoiceManifest)` returns a `ResolvedTransactionDefinition`.
 - Resolved identity equals:
   - `transactionType: 'sales.invoice'`
-  - `version: '1.0.0'`
+  - `schemaVersion: '1.0.0'`
   - `title: 'Sales Invoice'`
 - Header field IDs resolve in order: `customer`, `invoiceDate`, `reference`.
 - Grid column IDs resolve in order: `product`, `quantity`, `unitPrice`, `taxCode`, `lineTotal`.
@@ -259,9 +259,9 @@ Add tests in `packages/modules/sales/src/transactions/__tests__/salesInvoice.man
 - Diagnostics are empty for the base manifest.
 
 ### Hook Preservation
-- Resolved `customer.lookupProviderRef` equals `sales.customerLookup`.
-- Resolved `product.lookupProviderRef` equals `inventory.productLookup`.
-- Resolved `taxCode.lookupProviderRef` equals `sales.taxCodeLookup`.
+- Resolved `customer.lookupProviderRef` equals `sales.customer`.
+- Resolved `product.lookupProviderRef` equals `inventory.product`.
+- Resolved `taxCode.lookupProviderRef` equals `sales.taxCode`.
 - Resolved `lineTotal.calculationRef` equals `sales.invoice.calculateLineTotal`.
 - Resolved footer calculation refs equal the manifest-defined subtotal, tax total, and grand total calculation refs.
 - Resolved hooks include the calculation, validation, lookup provider, and persistence refs from the manifest.
@@ -331,7 +331,7 @@ Add tests in `packages/modules/sales/src/transactions/__tests__/salesInvoice.man
 
 ### Debug Log
 - Reused the Story 001 runtime-definition API as implemented in this session.
-- Story 001's fixture now re-exports the real Sales module manifest so `sales.taxCodeLookup` and other field assumptions stay canonical.
+- Story 001's fixture now re-exports the real Sales module manifest so `sales.taxCode` and other field assumptions stay canonical.
 
 ### Completion Notes
 - Implemented the Sales Invoice manifest in the Sales module layer with stable IDs, presentation-only override permissions, and hook references only.

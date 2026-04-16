@@ -19,3 +19,6 @@ export {
 export {
   getTaxRate,
 } from './tax';
+export {
+  resolveSalesInvoiceUnitPrice,
+} from './pricing';

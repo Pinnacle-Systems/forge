@@ -6,6 +6,7 @@ export default defineConfig({
     alias: {
       '@forge/platform/lookup-runtime': fileURLToPath(new URL('./packages/platform/src/lookup-runtime/index.ts', import.meta.url)),
       '@forge/platform/runtime-definition': fileURLToPath(new URL('./packages/platform/src/runtime-definition/index.ts', import.meta.url)),
+      '@forge/platform/transaction-shell': fileURLToPath(new URL('./packages/platform/src/transaction-shell/index.ts', import.meta.url)),
       '@forge/platform/transaction-grid': fileURLToPath(new URL('./packages/platform/src/transaction-grid/index.ts', import.meta.url)),
       '@forge/platform': fileURLToPath(new URL('./packages/platform/src/index.ts', import.meta.url)),
       '@forge/sales/calculations': fileURLToPath(new URL('./packages/modules/sales/src/calculations/index.ts', import.meta.url)),

@@ -1,0 +1,15 @@
+{
+  "name": "@forge/inventory",
+  "root": "packages/modules/inventory",
+  "sourceRoot": "packages/modules/inventory/src",
+  "projectType": "library",
+  "tags": ["scope:module", "domain:inventory", "type:module"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["packages/modules/inventory/**/*.ts"]
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ describe('validateInstanceConfig', () => {
   it('warns and ignores config with mismatched transactionType', () => {
     const diagnostics = validateInstanceConfig({
       transactionType: 'purchase.invoice',
+      targetManifestVersion: '1.0.0',
       overrides: {},
     }, salesInvoiceManifest);
 
@@ -39,6 +40,20 @@ describe('validateInstanceConfig', () => {
       expect.objectContaining({
         code: 'UNKNOWN_TARGET',
         targetId: 'missingField',
+      }),
+    ]);
+  });
+
+  it('warns when targetManifestVersion does not match manifest schemaVersion', () => {
+    const diagnostics = validateInstanceConfig({
+      transactionType: 'sales.invoice',
+      targetManifestVersion: '2.0.0',
+      overrides: {},
+    }, salesInvoiceManifest);
+
+    expect(diagnostics).toEqual([
+      expect.objectContaining({
+        code: 'MANIFEST_VERSION_MISMATCH',
       }),
     ]);
   });

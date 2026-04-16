@@ -1,4 +1,5 @@
 import { sortResolvedDefinition } from './sortResolvedDefinition';
+import { ConfigVersionMismatchError } from './errors';
 import type {
   InstanceOverride,
   ManifestField,
@@ -25,9 +26,14 @@ export function mergeTransactionDefinition(
   validateManifest(manifest);
 
   const diagnostics = validateInstanceConfig(config, manifest);
+
+  if (diagnostics.some((diagnostic) => diagnostic.code === 'MANIFEST_VERSION_MISMATCH')) {
+    throw new ConfigVersionMismatchError(diagnostics);
+  }
+
   const resolved: ResolvedTransactionDefinition = {
     transactionType: manifest.transactionType,
-    version: manifest.version,
+    schemaVersion: manifest.schemaVersion,
     title: manifest.title,
     header: {
       fields: manifest.header.fields.map(resolveField),

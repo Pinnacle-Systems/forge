@@ -29,3 +29,7 @@ export {
 export {
   normalizeGridKeyboardEvent,
 } from './keyboard';
+
+export type {
+  KeyboardLikeEvent,
+} from './keyboard';

@@ -11,21 +11,14 @@ import {
 
 export const inventoryProductLookupProviderId = 'inventory.product';
 
-interface CustomerPricing {
-  customerId: string;
-  priceOverrides: Record<string, number>;
-}
-
 interface InventoryProductLookupProviderOptions {
   products?: readonly InventoryProductFixture[];
-  customerPricing?: readonly CustomerPricing[];
 }
 
 export function createInventoryProductLookupProvider(
   options: InventoryProductLookupProviderOptions = {},
 ): LookupProvider {
   const products = options.products ?? inventoryProductFixtures;
-  const customerPricing = options.customerPricing ?? [];
 
   return {
     id: inventoryProductLookupProviderId,
@@ -47,7 +40,7 @@ export function createInventoryProductLookupProvider(
       return product ? toProductResult(product) : undefined;
     },
 
-    async enrich({ entityId, context }) {
+    async enrich({ entityId }) {
       const product = products.find((candidate) => candidate.id === entityId);
 
       if (!product) {
@@ -58,7 +51,7 @@ export function createInventoryProductLookupProvider(
         product: product.id,
         productSku: product.sku,
         productName: product.name,
-        unitPrice: selectUnitPrice(product, context.headerValues, context.rowValues, customerPricing),
+        unitPrice: product.baseUnitPrice,
         taxCode: product.taxCode,
       };
     },
@@ -117,30 +110,6 @@ function toProductResult(product: InventoryProductFixture): LookupResult {
   };
 }
 
-function selectUnitPrice(
-  product: InventoryProductFixture,
-  headerValues: Record<string, GridValue> | undefined,
-  rowValues: Record<string, GridValue> | undefined,
-  customerPricing: readonly CustomerPricing[],
-): number {
-  const customerId = getStringValue(headerValues?.customer);
-  const customerOverride = customerPricing
-    .find((pricing) => pricing.customerId === customerId)
-    ?.priceOverrides[product.id];
-
-  // Customer contract pricing wins over quantity breaks for this fixture backend.
-  if (customerOverride !== undefined) {
-    return customerOverride;
-  }
-
-  const quantity = getNumberValue(rowValues?.quantity);
-  const quantityBreak = [...(product.quantityPriceBreaks ?? [])]
-    .sort((left, right) => right.minQuantity - left.minQuantity)
-    .find((priceBreak) => quantity >= priceBreak.minQuantity);
-
-  return quantityBreak?.unitPrice ?? product.baseUnitPrice;
-}
-
 function invalid(code: string, message: string): LookupValidationResult {
   return {
     valid: false,
@@ -154,10 +123,6 @@ function invalid(code: string, message: string): LookupValidationResult {
 
 function getStringValue(value: GridValue): string | undefined {
   return typeof value === 'string' ? value : undefined;
-}
-
-function getNumberValue(value: GridValue): number {
-  return typeof value === 'number' ? value : 0;
 }
 
 function normalizeQuery(value: string): string {

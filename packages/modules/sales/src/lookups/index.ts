@@ -3,6 +3,10 @@ export {
   salesCustomerLookupProviderId,
 } from './customerLookupProvider';
 export {
+  createSalesTaxCodeLookupProvider,
+  salesTaxCodeLookupProviderId,
+} from './taxCodeLookupProvider';
+export {
   registerSalesInvoiceLookupProviders,
   salesInvoiceLookupProviderRefs,
 } from './lookupRegistration';

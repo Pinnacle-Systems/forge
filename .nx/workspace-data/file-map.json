@@ -1,0 +1,3648 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.4",
+  "pathMappings": {
+    "@forge/platform": [
+      "packages/platform/src/index.ts"
+    ],
+    "@forge/platform/*": [
+      "packages/platform/src/*"
+    ],
+    "@forge/sales": [
+      "packages/modules/sales/src/index.ts"
+    ],
+    "@forge/sales/*": [
+      "packages/modules/sales/src/*"
+    ],
+    "@forge/inventory": [
+      "packages/modules/inventory/src/index.ts"
+    ],
+    "@forge/inventory/*": [
+      "packages/modules/inventory/src/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "@forge/inventory": [
+        {
+          "file": "packages/modules/inventory/package.json",
+          "hash": "10759165798264831014",
+          "deps": [
+            "@forge/platform"
+          ]
+        },
+        {
+          "file": "packages/modules/inventory/project.json",
+          "hash": "11463990683262035775"
+        },
+        {
+          "file": "packages/modules/inventory/src/index.ts",
+          "hash": "10797601239161050957"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/__tests__/barcodeProductLookup.test.ts",
+          "hash": "8074366988464102591"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/__tests__/productLookupProvider.test.ts",
+          "hash": "6426581137031044665"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/index.ts",
+          "hash": "3944520184322139545"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/productFixtures.ts",
+          "hash": "14294078401189566114"
+        },
+        {
+          "file": "packages/modules/inventory/src/lookups/productLookupProvider.ts",
+          "hash": "10451128482916074607"
+        }
+      ],
+      "@forge/sales": [
+        {
+          "file": "packages/modules/sales/package.json",
+          "hash": "18436361300318448225",
+          "deps": [
+            "@forge/inventory",
+            "@forge/platform"
+          ]
+        },
+        {
+          "file": "packages/modules/sales/project.json",
+          "hash": "9261186562885096491"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/__tests__/footerCalculations.test.ts",
+          "hash": "4380633543285146332"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/__tests__/lineCalculations.test.ts",
+          "hash": "1444903647042951437"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/__tests__/manualOverride.test.ts",
+          "hash": "3637366037713598864"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/__tests__/recalculation.test.ts",
+          "hash": "14467572029856360354"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/footerCalculations.ts",
+          "hash": "7514767740633855071"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/hooks.ts",
+          "hash": "1399773700030234415"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/index.ts",
+          "hash": "8402627820476497332"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/lineCalculations.ts",
+          "hash": "896567286573476417"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/manualOverride.ts",
+          "hash": "16134850299796488443"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/pricing.ts",
+          "hash": "8186875884942554380"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/recalculation.ts",
+          "hash": "7452619041688065934"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/rounding.ts",
+          "hash": "8115930418401700643"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/tax.ts",
+          "hash": "8212704618830872236"
+        },
+        {
+          "file": "packages/modules/sales/src/calculations/types.ts",
+          "hash": "11640675390851393265"
+        },
+        {
+          "file": "packages/modules/sales/src/index.ts",
+          "hash": "10629048734771988264"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/__tests__/customerLookupProvider.test.ts",
+          "hash": "1414250809922913921"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/__tests__/salesLookupRegistration.test.ts",
+          "hash": "4181467056973202404"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/customerFixtures.ts",
+          "hash": "12745553715876079171"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/customerLookupProvider.ts",
+          "hash": "9826508715704022512"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/index.ts",
+          "hash": "13567759993435287993"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/lookupRegistration.ts",
+          "hash": "3082472072412936355"
+        },
+        {
+          "file": "packages/modules/sales/src/lookups/taxCodeLookupProvider.ts",
+          "hash": "11010585048462321520"
+        },
+        {
+          "file": "packages/modules/sales/src/transactions/__tests__/salesInvoice.manifest.test.ts",
+          "hash": "7730907468723242590"
+        },
+        {
+          "file": "packages/modules/sales/src/transactions/index.ts",
+          "hash": "14751155816819454731"
+        },
+        {
+          "file": "packages/modules/sales/src/transactions/salesInvoice.manifest.ts",
+          "hash": "6375270818780302391"
+        },
+        {
+          "file": "packages/modules/sales/src/ui/__tests__/salesInvoice.acceptance.test.ts",
+          "hash": "18047313225985658587"
+        },
+        {
+          "file": "packages/modules/sales/src/ui/__tests__/salesInvoiceScreen.test.ts",
+          "hash": "1343248451754420817"
+        },
+        {
+          "file": "packages/modules/sales/src/ui/index.ts",
+          "hash": "9107182811304462036"
+        },
+        {
+          "file": "packages/modules/sales/src/ui/salesInvoiceScreen.ts",
+          "hash": "7772561800609588812"
+        },
+        {
+          "file": "packages/modules/sales/src/ui/types.ts",
+          "hash": "15298284182873402710"
+        },
+        {
+          "file": "packages/modules/sales/src/validation/__tests__/discontinuedItem.test.ts",
+          "hash": "10811429555874472989"
+        },
+        {
+          "file": "packages/modules/sales/src/validation/discontinuedItem.ts",
+          "hash": "13681719521194348403"
+        },
+        {
+          "file": "packages/modules/sales/src/validation/index.ts",
+          "hash": "2723190267194803283"
+        },
+        {
+          "file": "packages/modules/sales/src/validation/types.ts",
+          "hash": "17713948241837429851"
+        }
+      ],
+      "@forge/platform": [
+        {
+          "file": "packages/platform/package.json",
+          "hash": "12864138939590963569"
+        },
+        {
+          "file": "packages/platform/project.json",
+          "hash": "507990935576468888"
+        },
+        {
+          "file": "packages/platform/src/index.ts",
+          "hash": "5866250101431291561"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/CascadeEngine.ts",
+          "hash": "6537055623203636300"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/LookupCache.ts",
+          "hash": "15586210704886083476"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/LookupRegistry.ts",
+          "hash": "11707824101210537722"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/CascadeEngine.test.ts",
+          "hash": "18123102433411371841"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/LookupCache.test.ts",
+          "hash": "9189740224619713668"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/LookupRegistry.test.ts",
+          "hash": "5456327342857461082"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/applyLookupSelection.test.ts",
+          "hash": "5407225917083615505"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/fixtures/lookupProviders.fixture.ts",
+          "hash": "10052400068129681588"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/fixtures/lookupRows.fixture.ts",
+          "hash": "7724568761616802934"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/__tests__/generationTokenProtection.test.ts",
+          "hash": "7994353268119243191"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/applyLookupSelection.ts",
+          "hash": "8066324245280268449"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/index.ts",
+          "hash": "10486897293180199085"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/runLookupRequest.ts",
+          "hash": "15515264628789208325"
+        },
+        {
+          "file": "packages/platform/src/lookup-runtime/types.ts",
+          "hash": "8630590456848318227"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/__tests__/fixtures/instanceConfigs.fixture.ts",
+          "hash": "859093289284246386"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/__tests__/fixtures/salesInvoiceManifest.fixture.ts",
+          "hash": "3333497605717977490"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/__tests__/mergeTransactionDefinition.test.ts",
+          "hash": "15116077648180280596"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/__tests__/validateInstanceConfig.test.ts",
+          "hash": "10601621967006212053"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/__tests__/validateManifest.test.ts",
+          "hash": "8492008838062354449"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/errors.ts",
+          "hash": "2347192515208203945"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/index.ts",
+          "hash": "2701615340711190018"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/mergeTransactionDefinition.ts",
+          "hash": "17964481936617141572"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/sortResolvedDefinition.ts",
+          "hash": "12020597353896446588"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/types.ts",
+          "hash": "14405697602616063925"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/validateInstanceConfig.ts",
+          "hash": "1433855880860218452"
+        },
+        {
+          "file": "packages/platform/src/runtime-definition/validateManifest.ts",
+          "hash": "17343091137391377677"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/columnInteractivity.test.ts",
+          "hash": "10680368794859894782"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/concurrentEditProtection.test.ts",
+          "hash": "14844159519096959399"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/createTransactionGridEngine.test.ts",
+          "hash": "4527045183823114563"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/fixtures/resolvedSalesInvoiceGrid.fixture.ts",
+          "hash": "16857424145137891898"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/keyboard.test.ts",
+          "hash": "9453626191743414323"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/rowInvariants.test.ts",
+          "hash": "16615990706479834504"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/__tests__/validationNavigation.test.ts",
+          "hash": "2727337775868983586"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/createTransactionGridEngine.ts",
+          "hash": "10034004852866731501"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/index.ts",
+          "hash": "9282500843564311962"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/keyboard.ts",
+          "hash": "4839814002745458138"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/rowInvariants.ts",
+          "hash": "1644662508070506138"
+        },
+        {
+          "file": "packages/platform/src/transaction-grid/types.ts",
+          "hash": "16520786877342425342"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/__tests__/saveState.test.ts",
+          "hash": "6820700421031920104"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/__tests__/validation.test.ts",
+          "hash": "10288158269265367105"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/index.ts",
+          "hash": "11795678980991958759"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/saveState.ts",
+          "hash": "872673219330522765"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/types.ts",
+          "hash": "16812352075426628260"
+        },
+        {
+          "file": "packages/platform/src/transaction-shell/validation.ts",
+          "hash": "14239054818301719428"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".agent/skills/bmad-advanced-elicitation/SKILL.md",
+        "hash": "7223517349373874943"
+      },
+      {
+        "file": ".agent/skills/bmad-advanced-elicitation/methods.csv",
+        "hash": "4269225937876627502"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-analyst/SKILL.md",
+        "hash": "14207061457172190761"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-analyst/bmad-skill-manifest.yaml",
+        "hash": "15471238887289866078"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-architect/SKILL.md",
+        "hash": "5823676457554504759"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-architect/bmad-skill-manifest.yaml",
+        "hash": "10545902758140973429"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-dev/SKILL.md",
+        "hash": "11270873189249221649"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-dev/bmad-skill-manifest.yaml",
+        "hash": "9258864334683315353"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-pm/SKILL.md",
+        "hash": "1921788278533810691"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-pm/bmad-skill-manifest.yaml",
+        "hash": "1480908776122703104"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/SKILL.md",
+        "hash": "14862305510743557960"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/bmad-skill-manifest.yaml",
+        "hash": "17272714318248878986"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/explain-concept.md",
+        "hash": "11412247781637435837"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/mermaid-gen.md",
+        "hash": "3548601029317531940"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/validate-doc.md",
+        "hash": "17015027678945342854"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-tech-writer/write-document.md",
+        "hash": "4682785940492745310"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-ux-designer/SKILL.md",
+        "hash": "580702350764948130"
+      },
+      {
+        "file": ".agent/skills/bmad-agent-ux-designer/bmad-skill-manifest.yaml",
+        "hash": "11280569885186767019"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/SKILL.md",
+        "hash": "6610247470642291249"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/brain-methods.csv",
+        "hash": "6797318140385168639"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-01-session-setup.md",
+        "hash": "15000475438974122359"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-01b-continue.md",
+        "hash": "12081079859169260261"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-02a-user-selected.md",
+        "hash": "5392286491338829459"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-02b-ai-recommended.md",
+        "hash": "9537440435253699235"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-02c-random-selection.md",
+        "hash": "16441178638953388330"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-02d-progressive-flow.md",
+        "hash": "18385421023485103342"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-03-technique-execution.md",
+        "hash": "8088881054781925172"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/steps/step-04-idea-organization.md",
+        "hash": "12239911745354665302"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/template.md",
+        "hash": "1528142360999965003"
+      },
+      {
+        "file": ".agent/skills/bmad-brainstorming/workflow.md",
+        "hash": "4304134187593397981"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/SKILL.md",
+        "hash": "13263404914125784895"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-01-document-discovery.md",
+        "hash": "18287501151159581707"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-02-prd-analysis.md",
+        "hash": "8664169635086795021"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-03-epic-coverage-validation.md",
+        "hash": "1048413516544641665"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-04-ux-alignment.md",
+        "hash": "17141089906793224721"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
+        "hash": "3663629799875600608"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/steps/step-06-final-assessment.md",
+        "hash": "2731868957289689900"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/templates/readiness-report-template.md",
+        "hash": "5764164338930785967"
+      },
+      {
+        "file": ".agent/skills/bmad-check-implementation-readiness/workflow.md",
+        "hash": "14098431504143665255"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/SKILL.md",
+        "hash": "7518570933802344896"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/generate-trail.md",
+        "hash": "3557253631902194305"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/step-01-orientation.md",
+        "hash": "4647551586874704886"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/step-02-walkthrough.md",
+        "hash": "464471841910844081"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/step-03-detail-pass.md",
+        "hash": "8129996739524107914"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/step-04-testing.md",
+        "hash": "15424294836203395637"
+      },
+      {
+        "file": ".agent/skills/bmad-checkpoint-preview/step-05-wrapup.md",
+        "hash": "14931009516866443463"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/SKILL.md",
+        "hash": "10429446468146748897"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/steps/step-01-gather-context.md",
+        "hash": "17144283155110627753"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/steps/step-02-review.md",
+        "hash": "925397596105568615"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/steps/step-03-triage.md",
+        "hash": "18244984906042793509"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/steps/step-04-present.md",
+        "hash": "13405714211234938030"
+      },
+      {
+        "file": ".agent/skills/bmad-code-review/workflow.md",
+        "hash": "18234971309393529393"
+      },
+      {
+        "file": ".agent/skills/bmad-correct-course/SKILL.md",
+        "hash": "9594503421870207221"
+      },
+      {
+        "file": ".agent/skills/bmad-correct-course/checklist.md",
+        "hash": "13362389289478283824"
+      },
+      {
+        "file": ".agent/skills/bmad-correct-course/workflow.md",
+        "hash": "11412146301370806910"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/SKILL.md",
+        "hash": "511456506399869341"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/architecture-decision-template.md",
+        "hash": "3985922240680874413"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/data/domain-complexity.csv",
+        "hash": "14358474159462709493"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/data/project-types.csv",
+        "hash": "1085203530622102022"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-01-init.md",
+        "hash": "15360904298613964849"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-01b-continue.md",
+        "hash": "4506905910604226017"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-02-context.md",
+        "hash": "15495132615718287014"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-03-starter.md",
+        "hash": "295576729725029731"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-04-decisions.md",
+        "hash": "6283292366583030028"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-05-patterns.md",
+        "hash": "397424671711582871"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-06-structure.md",
+        "hash": "16021731466651024843"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-07-validation.md",
+        "hash": "16460298529843223301"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/steps/step-08-complete.md",
+        "hash": "11948331301715153399"
+      },
+      {
+        "file": ".agent/skills/bmad-create-architecture/workflow.md",
+        "hash": "5144509985592968864"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/SKILL.md",
+        "hash": "4918346229215147582"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/steps/step-01-validate-prerequisites.md",
+        "hash": "416066201582181438"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/steps/step-02-design-epics.md",
+        "hash": "7229209551239972133"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/steps/step-03-create-stories.md",
+        "hash": "15866588471055270333"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/steps/step-04-final-validation.md",
+        "hash": "12332937683034987673"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/templates/epics-template.md",
+        "hash": "17239014006466638030"
+      },
+      {
+        "file": ".agent/skills/bmad-create-epics-and-stories/workflow.md",
+        "hash": "4874820857697343883"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/SKILL.md",
+        "hash": "12401767288118154352"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-01-init.md",
+        "hash": "14904576145770247755"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-01b-continue.md",
+        "hash": "1210439702098486520"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-02-discovery.md",
+        "hash": "290063734978695985"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-02b-vision.md",
+        "hash": "13392786326946921779"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-02c-executive-summary.md",
+        "hash": "7799533523144753914"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-03-success.md",
+        "hash": "16833439687950004366"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-04-journeys.md",
+        "hash": "11687463969581574576"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-05-domain.md",
+        "hash": "2399424873982133005"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-06-innovation.md",
+        "hash": "5203716697548406965"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-07-project-type.md",
+        "hash": "2412998946058790091"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-08-scoping.md",
+        "hash": "4521020132407642294"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-09-functional.md",
+        "hash": "16459133246699360770"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-10-nonfunctional.md",
+        "hash": "9468489674927762266"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-11-polish.md",
+        "hash": "17339599130578787932"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/steps-c/step-12-complete.md",
+        "hash": "15388742934942548311"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/templates/prd-template.md",
+        "hash": "17956514154848080884"
+      },
+      {
+        "file": ".agent/skills/bmad-create-prd/workflow.md",
+        "hash": "2143340849543550837"
+      },
+      {
+        "file": ".agent/skills/bmad-create-story/SKILL.md",
+        "hash": "12243201483435529006"
+      },
+      {
+        "file": ".agent/skills/bmad-create-story/checklist.md",
+        "hash": "7135310456281647113"
+      },
+      {
+        "file": ".agent/skills/bmad-create-story/discover-inputs.md",
+        "hash": "526389429978100997"
+      },
+      {
+        "file": ".agent/skills/bmad-create-story/template.md",
+        "hash": "2457671092916288064"
+      },
+      {
+        "file": ".agent/skills/bmad-create-story/workflow.md",
+        "hash": "3974546396023360191"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/SKILL.md",
+        "hash": "14911564052676871358"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-01-init.md",
+        "hash": "17054317128354602771"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-01b-continue.md",
+        "hash": "10080228292504897685"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-02-discovery.md",
+        "hash": "18090641639779088239"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-03-core-experience.md",
+        "hash": "3018405042204443040"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-04-emotional-response.md",
+        "hash": "17156112824701660339"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-05-inspiration.md",
+        "hash": "4096190377401527105"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-06-design-system.md",
+        "hash": "15069423263686481055"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-07-defining-experience.md",
+        "hash": "10511175643748234229"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-08-visual-foundation.md",
+        "hash": "12743993130630158518"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-09-design-directions.md",
+        "hash": "16894094613034898411"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-10-user-journeys.md",
+        "hash": "9427858417360331037"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-11-component-strategy.md",
+        "hash": "17092022655589589822"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-12-ux-patterns.md",
+        "hash": "13448125866054414702"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-13-responsive-accessibility.md",
+        "hash": "10764227330514859817"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/steps/step-14-complete.md",
+        "hash": "16439577732985602074"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/ux-design-template.md",
+        "hash": "6910239554713659977"
+      },
+      {
+        "file": ".agent/skills/bmad-create-ux-design/workflow.md",
+        "hash": "14444312816392225372"
+      },
+      {
+        "file": ".agent/skills/bmad-dev-story/SKILL.md",
+        "hash": "2641540215561221317"
+      },
+      {
+        "file": ".agent/skills/bmad-dev-story/checklist.md",
+        "hash": "15551025423553642235"
+      },
+      {
+        "file": ".agent/skills/bmad-dev-story/workflow.md",
+        "hash": "11936227080113727731"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/SKILL.md",
+        "hash": "18169131328669489019"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/agents/distillate-compressor.md",
+        "hash": "1743318102071015253"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/agents/round-trip-reconstructor.md",
+        "hash": "14266310956730231074"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/resources/compression-rules.md",
+        "hash": "4278797456099243885"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/resources/distillate-format-reference.md",
+        "hash": "11835403542295132451"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/resources/splitting-strategy.md",
+        "hash": "7546031276662922864"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/scripts/analyze_sources.py",
+        "hash": "9718338868258507334"
+      },
+      {
+        "file": ".agent/skills/bmad-distillator/scripts/tests/test_analyze_sources.py",
+        "hash": "16780751779440513285"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/SKILL.md",
+        "hash": "10808678729643697830"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/checklist.md",
+        "hash": "13517806405993629391"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/documentation-requirements.csv",
+        "hash": "2381007643084349864"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/instructions.md",
+        "hash": "1491299838225139831"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/templates/deep-dive-template.md",
+        "hash": "2511489597787371349"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/templates/index-template.md",
+        "hash": "376465994295728646"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/templates/project-overview-template.md",
+        "hash": "8548723404852979920"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/templates/project-scan-report-schema.json",
+        "hash": "7735753049242725413"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/templates/source-tree-template.md",
+        "hash": "7581822405268228692"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/workflow.md",
+        "hash": "6946948823671648314"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/workflows/deep-dive-instructions.md",
+        "hash": "660112330992733446"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/workflows/deep-dive-workflow.md",
+        "hash": "2822561097695135149"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/workflows/full-scan-instructions.md",
+        "hash": "8598976833621251269"
+      },
+      {
+        "file": ".agent/skills/bmad-document-project/workflows/full-scan-workflow.md",
+        "hash": "5568165060204204964"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/SKILL.md",
+        "hash": "7847455836504538624"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-01-init.md",
+        "hash": "594712294254123811"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-02-domain-analysis.md",
+        "hash": "3536273127717059215"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-03-competitive-landscape.md",
+        "hash": "17603580477608479958"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-04-regulatory-focus.md",
+        "hash": "1216667117839156007"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-05-technical-trends.md",
+        "hash": "7805163351506141088"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/domain-steps/step-06-research-synthesis.md",
+        "hash": "13214272086923652473"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agent/skills/bmad-domain-research/workflow.md",
+        "hash": "15511829264601962685"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/SKILL.md",
+        "hash": "16175621365363482035"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/steps-e/step-e-01-discovery.md",
+        "hash": "4258492298878225510"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/steps-e/step-e-01b-legacy-conversion.md",
+        "hash": "1032462239205105517"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/steps-e/step-e-02-review.md",
+        "hash": "13386743929123652173"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/steps-e/step-e-03-edit.md",
+        "hash": "13447980961001274793"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/steps-e/step-e-04-complete.md",
+        "hash": "8805974689584439564"
+      },
+      {
+        "file": ".agent/skills/bmad-edit-prd/workflow.md",
+        "hash": "4258907003163407"
+      },
+      {
+        "file": ".agent/skills/bmad-editorial-review-prose/SKILL.md",
+        "hash": "5072801115167372301"
+      },
+      {
+        "file": ".agent/skills/bmad-editorial-review-structure/SKILL.md",
+        "hash": "18089304471567278123"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/SKILL.md",
+        "hash": "491526139945058169"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/project-context-template.md",
+        "hash": "16198873307860029369"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/steps/step-01-discover.md",
+        "hash": "17761795400597804126"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/steps/step-02-generate.md",
+        "hash": "14055435619033099137"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/steps/step-03-complete.md",
+        "hash": "2656171640537031455"
+      },
+      {
+        "file": ".agent/skills/bmad-generate-project-context/workflow.md",
+        "hash": "15354507563030647297"
+      },
+      {
+        "file": ".agent/skills/bmad-help/SKILL.md",
+        "hash": "1248156207875779362"
+      },
+      {
+        "file": ".agent/skills/bmad-index-docs/SKILL.md",
+        "hash": "15971880724061991689"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/SKILL.md",
+        "hash": "15583225715130869746"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-01-init.md",
+        "hash": "15797566555016269956"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-02-customer-behavior.md",
+        "hash": "2244147414656396779"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-03-customer-pain-points.md",
+        "hash": "10745517216175081277"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-04-customer-decisions.md",
+        "hash": "9511916271829004534"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-05-competitive-analysis.md",
+        "hash": "18339790969036131658"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/steps/step-06-research-completion.md",
+        "hash": "7683317996288597233"
+      },
+      {
+        "file": ".agent/skills/bmad-market-research/workflow.md",
+        "hash": "417154021661832121"
+      },
+      {
+        "file": ".agent/skills/bmad-party-mode/SKILL.md",
+        "hash": "15035569046181820338"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/SKILL.md",
+        "hash": "107643566196891578"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/agents/artifact-analyzer.md",
+        "hash": "16011652104537167723"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/agents/web-researcher.md",
+        "hash": "3544490108623390824"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/assets/prfaq-template.md",
+        "hash": "12383331898905589189"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/bmad-manifest.json",
+        "hash": "6897046073757224015"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/references/customer-faq.md",
+        "hash": "1340280954205680341"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/references/internal-faq.md",
+        "hash": "17440018059483964548"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/references/press-release.md",
+        "hash": "2379355368799073588"
+      },
+      {
+        "file": ".agent/skills/bmad-prfaq/references/verdict.md",
+        "hash": "4842835852093225664"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/SKILL.md",
+        "hash": "2367279591344153693"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/agents/artifact-analyzer.md",
+        "hash": "4932355451976527760"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/agents/opportunity-reviewer.md",
+        "hash": "14250277478665791631"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/agents/skeptic-reviewer.md",
+        "hash": "694649716052450372"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/agents/web-researcher.md",
+        "hash": "6073109525209948818"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/bmad-manifest.json",
+        "hash": "2319089694155120197"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/prompts/contextual-discovery.md",
+        "hash": "14887436455769090764"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/prompts/draft-and-review.md",
+        "hash": "11465840033103191211"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/prompts/finalize.md",
+        "hash": "10872793354800344335"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/prompts/guided-elicitation.md",
+        "hash": "744121004447276300"
+      },
+      {
+        "file": ".agent/skills/bmad-product-brief/resources/brief-template.md",
+        "hash": "5847448448440262609"
+      },
+      {
+        "file": ".agent/skills/bmad-qa-generate-e2e-tests/SKILL.md",
+        "hash": "14937250227133393551"
+      },
+      {
+        "file": ".agent/skills/bmad-qa-generate-e2e-tests/checklist.md",
+        "hash": "3950366603940392340"
+      },
+      {
+        "file": ".agent/skills/bmad-qa-generate-e2e-tests/workflow.md",
+        "hash": "11723518565031245513"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/SKILL.md",
+        "hash": "8082958643527115467"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/compile-epic-context.md",
+        "hash": "6400515359921826616"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/spec-template.md",
+        "hash": "13446974597524170803"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-01-clarify-and-route.md",
+        "hash": "16658605228521233593"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-02-plan.md",
+        "hash": "10147435519189415280"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-03-implement.md",
+        "hash": "9972983479375606868"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-04-review.md",
+        "hash": "17714577748168713698"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-05-present.md",
+        "hash": "15475756990799071912"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/step-oneshot.md",
+        "hash": "10892698334996031114"
+      },
+      {
+        "file": ".agent/skills/bmad-quick-dev/workflow.md",
+        "hash": "5003189906690821373"
+      },
+      {
+        "file": ".agent/skills/bmad-retrospective/SKILL.md",
+        "hash": "8166482636356921758"
+      },
+      {
+        "file": ".agent/skills/bmad-retrospective/workflow.md",
+        "hash": "130360601160558471"
+      },
+      {
+        "file": ".agent/skills/bmad-review-adversarial-general/SKILL.md",
+        "hash": "9139653658767280730"
+      },
+      {
+        "file": ".agent/skills/bmad-review-edge-case-hunter/SKILL.md",
+        "hash": "468865358474005404"
+      },
+      {
+        "file": ".agent/skills/bmad-shard-doc/SKILL.md",
+        "hash": "15230813634832680332"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-planning/SKILL.md",
+        "hash": "14261759594006282496"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-planning/checklist.md",
+        "hash": "5478054915995241315"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-planning/sprint-status-template.yaml",
+        "hash": "2641083988029770941"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-planning/workflow.md",
+        "hash": "9623339209447954554"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-status/SKILL.md",
+        "hash": "10783912266543011277"
+      },
+      {
+        "file": ".agent/skills/bmad-sprint-status/workflow.md",
+        "hash": "15645002253521701691"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/SKILL.md",
+        "hash": "14734456052156135193"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-01-init.md",
+        "hash": "4530043341371358371"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-02-technical-overview.md",
+        "hash": "17603107249466842520"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-03-integration-patterns.md",
+        "hash": "12929894768221916586"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-04-architectural-patterns.md",
+        "hash": "7714458535121214640"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-05-implementation-research.md",
+        "hash": "11463533761585550647"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/technical-steps/step-06-research-synthesis.md",
+        "hash": "16168586084543634096"
+      },
+      {
+        "file": ".agent/skills/bmad-technical-research/workflow.md",
+        "hash": "4401194737160943483"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/SKILL.md",
+        "hash": "12701876736775652825"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-01-discovery.md",
+        "hash": "11272488254971154667"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-02-format-detection.md",
+        "hash": "17716943076159569896"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-02b-parity-check.md",
+        "hash": "4192576770070811694"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-03-density-validation.md",
+        "hash": "14935614900365684043"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-04-brief-coverage-validation.md",
+        "hash": "3316100686292072000"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-05-measurability-validation.md",
+        "hash": "5080146194932535991"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-06-traceability-validation.md",
+        "hash": "14988604414218019447"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-07-implementation-leakage-validation.md",
+        "hash": "2367278898432930974"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-08-domain-compliance-validation.md",
+        "hash": "9031716636505401095"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-09-project-type-validation.md",
+        "hash": "6224913081187985816"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-10-smart-validation.md",
+        "hash": "2662494547424286425"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-11-holistic-quality-validation.md",
+        "hash": "12707442519774644105"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-12-completeness-validation.md",
+        "hash": "11074240421935325424"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/steps-v/step-v-13-report-complete.md",
+        "hash": "16383978369050928965"
+      },
+      {
+        "file": ".agent/skills/bmad-validate-prd/workflow.md",
+        "hash": "17101376529820392203"
+      },
+      {
+        "file": ".agents/skills/bmad-advanced-elicitation/SKILL.md",
+        "hash": "7223517349373874943"
+      },
+      {
+        "file": ".agents/skills/bmad-advanced-elicitation/methods.csv",
+        "hash": "4269225937876627502"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-analyst/SKILL.md",
+        "hash": "14207061457172190761"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-analyst/bmad-skill-manifest.yaml",
+        "hash": "15471238887289866078"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-architect/SKILL.md",
+        "hash": "5823676457554504759"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-architect/bmad-skill-manifest.yaml",
+        "hash": "10545902758140973429"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-dev/SKILL.md",
+        "hash": "11270873189249221649"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-dev/bmad-skill-manifest.yaml",
+        "hash": "9258864334683315353"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-pm/SKILL.md",
+        "hash": "1921788278533810691"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-pm/bmad-skill-manifest.yaml",
+        "hash": "1480908776122703104"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/SKILL.md",
+        "hash": "14862305510743557960"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/bmad-skill-manifest.yaml",
+        "hash": "17272714318248878986"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/explain-concept.md",
+        "hash": "11412247781637435837"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/mermaid-gen.md",
+        "hash": "3548601029317531940"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/validate-doc.md",
+        "hash": "17015027678945342854"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-tech-writer/write-document.md",
+        "hash": "4682785940492745310"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-ux-designer/SKILL.md",
+        "hash": "580702350764948130"
+      },
+      {
+        "file": ".agents/skills/bmad-agent-ux-designer/bmad-skill-manifest.yaml",
+        "hash": "11280569885186767019"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/SKILL.md",
+        "hash": "6610247470642291249"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/brain-methods.csv",
+        "hash": "6797318140385168639"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-01-session-setup.md",
+        "hash": "15000475438974122359"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-01b-continue.md",
+        "hash": "12081079859169260261"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-02a-user-selected.md",
+        "hash": "5392286491338829459"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-02b-ai-recommended.md",
+        "hash": "9537440435253699235"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-02c-random-selection.md",
+        "hash": "16441178638953388330"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-02d-progressive-flow.md",
+        "hash": "18385421023485103342"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-03-technique-execution.md",
+        "hash": "8088881054781925172"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/steps/step-04-idea-organization.md",
+        "hash": "12239911745354665302"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/template.md",
+        "hash": "1528142360999965003"
+      },
+      {
+        "file": ".agents/skills/bmad-brainstorming/workflow.md",
+        "hash": "4304134187593397981"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/SKILL.md",
+        "hash": "13263404914125784895"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-01-document-discovery.md",
+        "hash": "18287501151159581707"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-02-prd-analysis.md",
+        "hash": "8664169635086795021"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-03-epic-coverage-validation.md",
+        "hash": "1048413516544641665"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-04-ux-alignment.md",
+        "hash": "17141089906793224721"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
+        "hash": "3663629799875600608"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/steps/step-06-final-assessment.md",
+        "hash": "2731868957289689900"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/templates/readiness-report-template.md",
+        "hash": "5764164338930785967"
+      },
+      {
+        "file": ".agents/skills/bmad-check-implementation-readiness/workflow.md",
+        "hash": "14098431504143665255"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/SKILL.md",
+        "hash": "7518570933802344896"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/generate-trail.md",
+        "hash": "3557253631902194305"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/step-01-orientation.md",
+        "hash": "4647551586874704886"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/step-02-walkthrough.md",
+        "hash": "464471841910844081"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/step-03-detail-pass.md",
+        "hash": "8129996739524107914"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/step-04-testing.md",
+        "hash": "15424294836203395637"
+      },
+      {
+        "file": ".agents/skills/bmad-checkpoint-preview/step-05-wrapup.md",
+        "hash": "14931009516866443463"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/SKILL.md",
+        "hash": "10429446468146748897"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/steps/step-01-gather-context.md",
+        "hash": "17144283155110627753"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/steps/step-02-review.md",
+        "hash": "925397596105568615"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/steps/step-03-triage.md",
+        "hash": "18244984906042793509"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/steps/step-04-present.md",
+        "hash": "13405714211234938030"
+      },
+      {
+        "file": ".agents/skills/bmad-code-review/workflow.md",
+        "hash": "18234971309393529393"
+      },
+      {
+        "file": ".agents/skills/bmad-correct-course/SKILL.md",
+        "hash": "9594503421870207221"
+      },
+      {
+        "file": ".agents/skills/bmad-correct-course/checklist.md",
+        "hash": "13362389289478283824"
+      },
+      {
+        "file": ".agents/skills/bmad-correct-course/workflow.md",
+        "hash": "11412146301370806910"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/SKILL.md",
+        "hash": "511456506399869341"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/architecture-decision-template.md",
+        "hash": "3985922240680874413"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/data/domain-complexity.csv",
+        "hash": "14358474159462709493"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/data/project-types.csv",
+        "hash": "1085203530622102022"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-01-init.md",
+        "hash": "15360904298613964849"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-01b-continue.md",
+        "hash": "4506905910604226017"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-02-context.md",
+        "hash": "15495132615718287014"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-03-starter.md",
+        "hash": "295576729725029731"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-04-decisions.md",
+        "hash": "6283292366583030028"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-05-patterns.md",
+        "hash": "397424671711582871"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-06-structure.md",
+        "hash": "16021731466651024843"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-07-validation.md",
+        "hash": "16460298529843223301"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/steps/step-08-complete.md",
+        "hash": "11948331301715153399"
+      },
+      {
+        "file": ".agents/skills/bmad-create-architecture/workflow.md",
+        "hash": "5144509985592968864"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/SKILL.md",
+        "hash": "4918346229215147582"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/steps/step-01-validate-prerequisites.md",
+        "hash": "416066201582181438"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/steps/step-02-design-epics.md",
+        "hash": "7229209551239972133"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/steps/step-03-create-stories.md",
+        "hash": "15866588471055270333"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/steps/step-04-final-validation.md",
+        "hash": "12332937683034987673"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/templates/epics-template.md",
+        "hash": "17239014006466638030"
+      },
+      {
+        "file": ".agents/skills/bmad-create-epics-and-stories/workflow.md",
+        "hash": "4874820857697343883"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/SKILL.md",
+        "hash": "12401767288118154352"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-01-init.md",
+        "hash": "14904576145770247755"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-01b-continue.md",
+        "hash": "1210439702098486520"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-02-discovery.md",
+        "hash": "290063734978695985"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-02b-vision.md",
+        "hash": "13392786326946921779"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-02c-executive-summary.md",
+        "hash": "7799533523144753914"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-03-success.md",
+        "hash": "16833439687950004366"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-04-journeys.md",
+        "hash": "11687463969581574576"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-05-domain.md",
+        "hash": "2399424873982133005"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-06-innovation.md",
+        "hash": "5203716697548406965"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-07-project-type.md",
+        "hash": "2412998946058790091"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-08-scoping.md",
+        "hash": "4521020132407642294"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-09-functional.md",
+        "hash": "16459133246699360770"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-10-nonfunctional.md",
+        "hash": "9468489674927762266"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-11-polish.md",
+        "hash": "17339599130578787932"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/steps-c/step-12-complete.md",
+        "hash": "15388742934942548311"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/templates/prd-template.md",
+        "hash": "17956514154848080884"
+      },
+      {
+        "file": ".agents/skills/bmad-create-prd/workflow.md",
+        "hash": "2143340849543550837"
+      },
+      {
+        "file": ".agents/skills/bmad-create-story/SKILL.md",
+        "hash": "12243201483435529006"
+      },
+      {
+        "file": ".agents/skills/bmad-create-story/checklist.md",
+        "hash": "7135310456281647113"
+      },
+      {
+        "file": ".agents/skills/bmad-create-story/discover-inputs.md",
+        "hash": "526389429978100997"
+      },
+      {
+        "file": ".agents/skills/bmad-create-story/template.md",
+        "hash": "2457671092916288064"
+      },
+      {
+        "file": ".agents/skills/bmad-create-story/workflow.md",
+        "hash": "3974546396023360191"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/SKILL.md",
+        "hash": "14911564052676871358"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-01-init.md",
+        "hash": "17054317128354602771"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-01b-continue.md",
+        "hash": "10080228292504897685"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-02-discovery.md",
+        "hash": "18090641639779088239"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-03-core-experience.md",
+        "hash": "3018405042204443040"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-04-emotional-response.md",
+        "hash": "17156112824701660339"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-05-inspiration.md",
+        "hash": "4096190377401527105"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-06-design-system.md",
+        "hash": "15069423263686481055"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-07-defining-experience.md",
+        "hash": "10511175643748234229"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-08-visual-foundation.md",
+        "hash": "12743993130630158518"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-09-design-directions.md",
+        "hash": "16894094613034898411"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-10-user-journeys.md",
+        "hash": "9427858417360331037"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-11-component-strategy.md",
+        "hash": "17092022655589589822"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-12-ux-patterns.md",
+        "hash": "13448125866054414702"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-13-responsive-accessibility.md",
+        "hash": "10764227330514859817"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/steps/step-14-complete.md",
+        "hash": "16439577732985602074"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/ux-design-template.md",
+        "hash": "6910239554713659977"
+      },
+      {
+        "file": ".agents/skills/bmad-create-ux-design/workflow.md",
+        "hash": "14444312816392225372"
+      },
+      {
+        "file": ".agents/skills/bmad-dev-story/SKILL.md",
+        "hash": "2641540215561221317"
+      },
+      {
+        "file": ".agents/skills/bmad-dev-story/checklist.md",
+        "hash": "15551025423553642235"
+      },
+      {
+        "file": ".agents/skills/bmad-dev-story/workflow.md",
+        "hash": "11936227080113727731"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/SKILL.md",
+        "hash": "18169131328669489019"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/agents/distillate-compressor.md",
+        "hash": "1743318102071015253"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/agents/round-trip-reconstructor.md",
+        "hash": "14266310956730231074"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/resources/compression-rules.md",
+        "hash": "4278797456099243885"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/resources/distillate-format-reference.md",
+        "hash": "11835403542295132451"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/resources/splitting-strategy.md",
+        "hash": "7546031276662922864"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/scripts/analyze_sources.py",
+        "hash": "9718338868258507334"
+      },
+      {
+        "file": ".agents/skills/bmad-distillator/scripts/tests/test_analyze_sources.py",
+        "hash": "16780751779440513285"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/SKILL.md",
+        "hash": "10808678729643697830"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/checklist.md",
+        "hash": "13517806405993629391"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/documentation-requirements.csv",
+        "hash": "2381007643084349864"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/instructions.md",
+        "hash": "1491299838225139831"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/templates/deep-dive-template.md",
+        "hash": "2511489597787371349"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/templates/index-template.md",
+        "hash": "376465994295728646"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/templates/project-overview-template.md",
+        "hash": "8548723404852979920"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/templates/project-scan-report-schema.json",
+        "hash": "7735753049242725413"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/templates/source-tree-template.md",
+        "hash": "7581822405268228692"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/workflow.md",
+        "hash": "6946948823671648314"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/workflows/deep-dive-instructions.md",
+        "hash": "660112330992733446"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/workflows/deep-dive-workflow.md",
+        "hash": "2822561097695135149"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/workflows/full-scan-instructions.md",
+        "hash": "8598976833621251269"
+      },
+      {
+        "file": ".agents/skills/bmad-document-project/workflows/full-scan-workflow.md",
+        "hash": "5568165060204204964"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/SKILL.md",
+        "hash": "7847455836504538624"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-01-init.md",
+        "hash": "594712294254123811"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-02-domain-analysis.md",
+        "hash": "3536273127717059215"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-03-competitive-landscape.md",
+        "hash": "17603580477608479958"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-04-regulatory-focus.md",
+        "hash": "1216667117839156007"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-05-technical-trends.md",
+        "hash": "7805163351506141088"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/domain-steps/step-06-research-synthesis.md",
+        "hash": "13214272086923652473"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agents/skills/bmad-domain-research/workflow.md",
+        "hash": "15511829264601962685"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/SKILL.md",
+        "hash": "16175621365363482035"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/steps-e/step-e-01-discovery.md",
+        "hash": "4258492298878225510"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/steps-e/step-e-01b-legacy-conversion.md",
+        "hash": "1032462239205105517"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/steps-e/step-e-02-review.md",
+        "hash": "13386743929123652173"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/steps-e/step-e-03-edit.md",
+        "hash": "13447980961001274793"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/steps-e/step-e-04-complete.md",
+        "hash": "8805974689584439564"
+      },
+      {
+        "file": ".agents/skills/bmad-edit-prd/workflow.md",
+        "hash": "4258907003163407"
+      },
+      {
+        "file": ".agents/skills/bmad-editorial-review-prose/SKILL.md",
+        "hash": "5072801115167372301"
+      },
+      {
+        "file": ".agents/skills/bmad-editorial-review-structure/SKILL.md",
+        "hash": "18089304471567278123"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/SKILL.md",
+        "hash": "491526139945058169"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/project-context-template.md",
+        "hash": "16198873307860029369"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/steps/step-01-discover.md",
+        "hash": "17761795400597804126"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/steps/step-02-generate.md",
+        "hash": "14055435619033099137"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/steps/step-03-complete.md",
+        "hash": "2656171640537031455"
+      },
+      {
+        "file": ".agents/skills/bmad-generate-project-context/workflow.md",
+        "hash": "15354507563030647297"
+      },
+      {
+        "file": ".agents/skills/bmad-help/SKILL.md",
+        "hash": "1248156207875779362"
+      },
+      {
+        "file": ".agents/skills/bmad-index-docs/SKILL.md",
+        "hash": "15971880724061991689"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/SKILL.md",
+        "hash": "15583225715130869746"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-01-init.md",
+        "hash": "15797566555016269956"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-02-customer-behavior.md",
+        "hash": "2244147414656396779"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-03-customer-pain-points.md",
+        "hash": "10745517216175081277"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-04-customer-decisions.md",
+        "hash": "9511916271829004534"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-05-competitive-analysis.md",
+        "hash": "18339790969036131658"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/steps/step-06-research-completion.md",
+        "hash": "7683317996288597233"
+      },
+      {
+        "file": ".agents/skills/bmad-market-research/workflow.md",
+        "hash": "417154021661832121"
+      },
+      {
+        "file": ".agents/skills/bmad-party-mode/SKILL.md",
+        "hash": "15035569046181820338"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/SKILL.md",
+        "hash": "107643566196891578"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/agents/artifact-analyzer.md",
+        "hash": "16011652104537167723"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/agents/web-researcher.md",
+        "hash": "3544490108623390824"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/assets/prfaq-template.md",
+        "hash": "12383331898905589189"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/bmad-manifest.json",
+        "hash": "6897046073757224015"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/references/customer-faq.md",
+        "hash": "1340280954205680341"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/references/internal-faq.md",
+        "hash": "17440018059483964548"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/references/press-release.md",
+        "hash": "2379355368799073588"
+      },
+      {
+        "file": ".agents/skills/bmad-prfaq/references/verdict.md",
+        "hash": "4842835852093225664"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/SKILL.md",
+        "hash": "2367279591344153693"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/agents/artifact-analyzer.md",
+        "hash": "4932355451976527760"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/agents/opportunity-reviewer.md",
+        "hash": "14250277478665791631"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/agents/skeptic-reviewer.md",
+        "hash": "694649716052450372"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/agents/web-researcher.md",
+        "hash": "6073109525209948818"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/bmad-manifest.json",
+        "hash": "2319089694155120197"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/prompts/contextual-discovery.md",
+        "hash": "14887436455769090764"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/prompts/draft-and-review.md",
+        "hash": "11465840033103191211"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/prompts/finalize.md",
+        "hash": "10872793354800344335"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/prompts/guided-elicitation.md",
+        "hash": "744121004447276300"
+      },
+      {
+        "file": ".agents/skills/bmad-product-brief/resources/brief-template.md",
+        "hash": "5847448448440262609"
+      },
+      {
+        "file": ".agents/skills/bmad-qa-generate-e2e-tests/SKILL.md",
+        "hash": "14937250227133393551"
+      },
+      {
+        "file": ".agents/skills/bmad-qa-generate-e2e-tests/checklist.md",
+        "hash": "3950366603940392340"
+      },
+      {
+        "file": ".agents/skills/bmad-qa-generate-e2e-tests/workflow.md",
+        "hash": "11723518565031245513"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/SKILL.md",
+        "hash": "8082958643527115467"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/compile-epic-context.md",
+        "hash": "6400515359921826616"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/spec-template.md",
+        "hash": "13446974597524170803"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-01-clarify-and-route.md",
+        "hash": "16658605228521233593"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-02-plan.md",
+        "hash": "10147435519189415280"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-03-implement.md",
+        "hash": "9972983479375606868"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-04-review.md",
+        "hash": "17714577748168713698"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-05-present.md",
+        "hash": "15475756990799071912"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/step-oneshot.md",
+        "hash": "10892698334996031114"
+      },
+      {
+        "file": ".agents/skills/bmad-quick-dev/workflow.md",
+        "hash": "5003189906690821373"
+      },
+      {
+        "file": ".agents/skills/bmad-retrospective/SKILL.md",
+        "hash": "8166482636356921758"
+      },
+      {
+        "file": ".agents/skills/bmad-retrospective/workflow.md",
+        "hash": "130360601160558471"
+      },
+      {
+        "file": ".agents/skills/bmad-review-adversarial-general/SKILL.md",
+        "hash": "9139653658767280730"
+      },
+      {
+        "file": ".agents/skills/bmad-review-edge-case-hunter/SKILL.md",
+        "hash": "468865358474005404"
+      },
+      {
+        "file": ".agents/skills/bmad-shard-doc/SKILL.md",
+        "hash": "15230813634832680332"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-planning/SKILL.md",
+        "hash": "14261759594006282496"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-planning/checklist.md",
+        "hash": "5478054915995241315"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-planning/sprint-status-template.yaml",
+        "hash": "2641083988029770941"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-planning/workflow.md",
+        "hash": "9623339209447954554"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-status/SKILL.md",
+        "hash": "10783912266543011277"
+      },
+      {
+        "file": ".agents/skills/bmad-sprint-status/workflow.md",
+        "hash": "15645002253521701691"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/SKILL.md",
+        "hash": "14734456052156135193"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-01-init.md",
+        "hash": "4530043341371358371"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-02-technical-overview.md",
+        "hash": "17603107249466842520"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-03-integration-patterns.md",
+        "hash": "12929894768221916586"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-04-architectural-patterns.md",
+        "hash": "7714458535121214640"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-05-implementation-research.md",
+        "hash": "11463533761585550647"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/technical-steps/step-06-research-synthesis.md",
+        "hash": "16168586084543634096"
+      },
+      {
+        "file": ".agents/skills/bmad-technical-research/workflow.md",
+        "hash": "4401194737160943483"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/SKILL.md",
+        "hash": "12701876736775652825"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-01-discovery.md",
+        "hash": "11272488254971154667"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-02-format-detection.md",
+        "hash": "17716943076159569896"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-02b-parity-check.md",
+        "hash": "4192576770070811694"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-03-density-validation.md",
+        "hash": "14935614900365684043"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-04-brief-coverage-validation.md",
+        "hash": "3316100686292072000"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-05-measurability-validation.md",
+        "hash": "5080146194932535991"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-06-traceability-validation.md",
+        "hash": "14988604414218019447"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-07-implementation-leakage-validation.md",
+        "hash": "2367278898432930974"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-08-domain-compliance-validation.md",
+        "hash": "9031716636505401095"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-09-project-type-validation.md",
+        "hash": "6224913081187985816"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-10-smart-validation.md",
+        "hash": "2662494547424286425"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-11-holistic-quality-validation.md",
+        "hash": "12707442519774644105"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-12-completeness-validation.md",
+        "hash": "11074240421935325424"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/steps-v/step-v-13-report-complete.md",
+        "hash": "16383978369050928965"
+      },
+      {
+        "file": ".agents/skills/bmad-validate-prd/workflow.md",
+        "hash": "17101376529820392203"
+      },
+      {
+        "file": ".claude/skills/bmad-advanced-elicitation/SKILL.md",
+        "hash": "7223517349373874943"
+      },
+      {
+        "file": ".claude/skills/bmad-advanced-elicitation/methods.csv",
+        "hash": "4269225937876627502"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-analyst/SKILL.md",
+        "hash": "14207061457172190761"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-analyst/bmad-skill-manifest.yaml",
+        "hash": "15471238887289866078"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-architect/SKILL.md",
+        "hash": "5823676457554504759"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-architect/bmad-skill-manifest.yaml",
+        "hash": "10545902758140973429"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-dev/SKILL.md",
+        "hash": "11270873189249221649"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-dev/bmad-skill-manifest.yaml",
+        "hash": "9258864334683315353"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-pm/SKILL.md",
+        "hash": "1921788278533810691"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-pm/bmad-skill-manifest.yaml",
+        "hash": "1480908776122703104"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/SKILL.md",
+        "hash": "14862305510743557960"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/bmad-skill-manifest.yaml",
+        "hash": "17272714318248878986"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/explain-concept.md",
+        "hash": "11412247781637435837"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/mermaid-gen.md",
+        "hash": "3548601029317531940"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/validate-doc.md",
+        "hash": "17015027678945342854"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-tech-writer/write-document.md",
+        "hash": "4682785940492745310"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-ux-designer/SKILL.md",
+        "hash": "580702350764948130"
+      },
+      {
+        "file": ".claude/skills/bmad-agent-ux-designer/bmad-skill-manifest.yaml",
+        "hash": "11280569885186767019"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/SKILL.md",
+        "hash": "6610247470642291249"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/brain-methods.csv",
+        "hash": "6797318140385168639"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-01-session-setup.md",
+        "hash": "15000475438974122359"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-01b-continue.md",
+        "hash": "12081079859169260261"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-02a-user-selected.md",
+        "hash": "5392286491338829459"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-02b-ai-recommended.md",
+        "hash": "9537440435253699235"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-02c-random-selection.md",
+        "hash": "16441178638953388330"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-02d-progressive-flow.md",
+        "hash": "18385421023485103342"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-03-technique-execution.md",
+        "hash": "8088881054781925172"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/steps/step-04-idea-organization.md",
+        "hash": "12239911745354665302"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/template.md",
+        "hash": "1528142360999965003"
+      },
+      {
+        "file": ".claude/skills/bmad-brainstorming/workflow.md",
+        "hash": "4304134187593397981"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/SKILL.md",
+        "hash": "13263404914125784895"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-01-document-discovery.md",
+        "hash": "18287501151159581707"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-02-prd-analysis.md",
+        "hash": "8664169635086795021"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-03-epic-coverage-validation.md",
+        "hash": "1048413516544641665"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-04-ux-alignment.md",
+        "hash": "17141089906793224721"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
+        "hash": "3663629799875600608"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/steps/step-06-final-assessment.md",
+        "hash": "2731868957289689900"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/templates/readiness-report-template.md",
+        "hash": "5764164338930785967"
+      },
+      {
+        "file": ".claude/skills/bmad-check-implementation-readiness/workflow.md",
+        "hash": "14098431504143665255"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/SKILL.md",
+        "hash": "7518570933802344896"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/generate-trail.md",
+        "hash": "3557253631902194305"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/step-01-orientation.md",
+        "hash": "4647551586874704886"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/step-02-walkthrough.md",
+        "hash": "464471841910844081"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/step-03-detail-pass.md",
+        "hash": "8129996739524107914"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/step-04-testing.md",
+        "hash": "15424294836203395637"
+      },
+      {
+        "file": ".claude/skills/bmad-checkpoint-preview/step-05-wrapup.md",
+        "hash": "14931009516866443463"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/SKILL.md",
+        "hash": "10429446468146748897"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/steps/step-01-gather-context.md",
+        "hash": "17144283155110627753"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/steps/step-02-review.md",
+        "hash": "925397596105568615"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/steps/step-03-triage.md",
+        "hash": "18244984906042793509"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/steps/step-04-present.md",
+        "hash": "13405714211234938030"
+      },
+      {
+        "file": ".claude/skills/bmad-code-review/workflow.md",
+        "hash": "18234971309393529393"
+      },
+      {
+        "file": ".claude/skills/bmad-correct-course/SKILL.md",
+        "hash": "9594503421870207221"
+      },
+      {
+        "file": ".claude/skills/bmad-correct-course/checklist.md",
+        "hash": "13362389289478283824"
+      },
+      {
+        "file": ".claude/skills/bmad-correct-course/workflow.md",
+        "hash": "11412146301370806910"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/SKILL.md",
+        "hash": "511456506399869341"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/architecture-decision-template.md",
+        "hash": "3985922240680874413"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/data/domain-complexity.csv",
+        "hash": "14358474159462709493"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/data/project-types.csv",
+        "hash": "1085203530622102022"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-01-init.md",
+        "hash": "15360904298613964849"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-01b-continue.md",
+        "hash": "4506905910604226017"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-02-context.md",
+        "hash": "15495132615718287014"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-03-starter.md",
+        "hash": "295576729725029731"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-04-decisions.md",
+        "hash": "6283292366583030028"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-05-patterns.md",
+        "hash": "397424671711582871"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-06-structure.md",
+        "hash": "16021731466651024843"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-07-validation.md",
+        "hash": "16460298529843223301"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/steps/step-08-complete.md",
+        "hash": "11948331301715153399"
+      },
+      {
+        "file": ".claude/skills/bmad-create-architecture/workflow.md",
+        "hash": "5144509985592968864"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/SKILL.md",
+        "hash": "4918346229215147582"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/steps/step-01-validate-prerequisites.md",
+        "hash": "416066201582181438"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/steps/step-02-design-epics.md",
+        "hash": "7229209551239972133"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/steps/step-03-create-stories.md",
+        "hash": "15866588471055270333"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/steps/step-04-final-validation.md",
+        "hash": "12332937683034987673"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/templates/epics-template.md",
+        "hash": "17239014006466638030"
+      },
+      {
+        "file": ".claude/skills/bmad-create-epics-and-stories/workflow.md",
+        "hash": "4874820857697343883"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/SKILL.md",
+        "hash": "12401767288118154352"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-01-init.md",
+        "hash": "14904576145770247755"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-01b-continue.md",
+        "hash": "1210439702098486520"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-02-discovery.md",
+        "hash": "290063734978695985"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-02b-vision.md",
+        "hash": "13392786326946921779"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-02c-executive-summary.md",
+        "hash": "7799533523144753914"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-03-success.md",
+        "hash": "16833439687950004366"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-04-journeys.md",
+        "hash": "11687463969581574576"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-05-domain.md",
+        "hash": "2399424873982133005"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-06-innovation.md",
+        "hash": "5203716697548406965"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-07-project-type.md",
+        "hash": "2412998946058790091"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-08-scoping.md",
+        "hash": "4521020132407642294"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-09-functional.md",
+        "hash": "16459133246699360770"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-10-nonfunctional.md",
+        "hash": "9468489674927762266"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-11-polish.md",
+        "hash": "17339599130578787932"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/steps-c/step-12-complete.md",
+        "hash": "15388742934942548311"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/templates/prd-template.md",
+        "hash": "17956514154848080884"
+      },
+      {
+        "file": ".claude/skills/bmad-create-prd/workflow.md",
+        "hash": "2143340849543550837"
+      },
+      {
+        "file": ".claude/skills/bmad-create-story/SKILL.md",
+        "hash": "12243201483435529006"
+      },
+      {
+        "file": ".claude/skills/bmad-create-story/checklist.md",
+        "hash": "7135310456281647113"
+      },
+      {
+        "file": ".claude/skills/bmad-create-story/discover-inputs.md",
+        "hash": "526389429978100997"
+      },
+      {
+        "file": ".claude/skills/bmad-create-story/template.md",
+        "hash": "2457671092916288064"
+      },
+      {
+        "file": ".claude/skills/bmad-create-story/workflow.md",
+        "hash": "3974546396023360191"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/SKILL.md",
+        "hash": "14911564052676871358"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-01-init.md",
+        "hash": "17054317128354602771"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-01b-continue.md",
+        "hash": "10080228292504897685"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-02-discovery.md",
+        "hash": "18090641639779088239"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-03-core-experience.md",
+        "hash": "3018405042204443040"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-04-emotional-response.md",
+        "hash": "17156112824701660339"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-05-inspiration.md",
+        "hash": "4096190377401527105"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-06-design-system.md",
+        "hash": "15069423263686481055"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-07-defining-experience.md",
+        "hash": "10511175643748234229"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-08-visual-foundation.md",
+        "hash": "12743993130630158518"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-09-design-directions.md",
+        "hash": "16894094613034898411"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-10-user-journeys.md",
+        "hash": "9427858417360331037"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-11-component-strategy.md",
+        "hash": "17092022655589589822"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-12-ux-patterns.md",
+        "hash": "13448125866054414702"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-13-responsive-accessibility.md",
+        "hash": "10764227330514859817"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/steps/step-14-complete.md",
+        "hash": "16439577732985602074"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/ux-design-template.md",
+        "hash": "6910239554713659977"
+      },
+      {
+        "file": ".claude/skills/bmad-create-ux-design/workflow.md",
+        "hash": "14444312816392225372"
+      },
+      {
+        "file": ".claude/skills/bmad-dev-story/SKILL.md",
+        "hash": "2641540215561221317"
+      },
+      {
+        "file": ".claude/skills/bmad-dev-story/checklist.md",
+        "hash": "15551025423553642235"
+      },
+      {
+        "file": ".claude/skills/bmad-dev-story/workflow.md",
+        "hash": "11936227080113727731"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/SKILL.md",
+        "hash": "18169131328669489019"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/agents/distillate-compressor.md",
+        "hash": "1743318102071015253"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/agents/round-trip-reconstructor.md",
+        "hash": "14266310956730231074"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/resources/compression-rules.md",
+        "hash": "4278797456099243885"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/resources/distillate-format-reference.md",
+        "hash": "11835403542295132451"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/resources/splitting-strategy.md",
+        "hash": "7546031276662922864"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/scripts/analyze_sources.py",
+        "hash": "9718338868258507334"
+      },
+      {
+        "file": ".claude/skills/bmad-distillator/scripts/tests/test_analyze_sources.py",
+        "hash": "16780751779440513285"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/SKILL.md",
+        "hash": "10808678729643697830"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/checklist.md",
+        "hash": "13517806405993629391"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/documentation-requirements.csv",
+        "hash": "2381007643084349864"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/instructions.md",
+        "hash": "1491299838225139831"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/templates/deep-dive-template.md",
+        "hash": "2511489597787371349"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/templates/index-template.md",
+        "hash": "376465994295728646"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/templates/project-overview-template.md",
+        "hash": "8548723404852979920"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/templates/project-scan-report-schema.json",
+        "hash": "7735753049242725413"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/templates/source-tree-template.md",
+        "hash": "7581822405268228692"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/workflow.md",
+        "hash": "6946948823671648314"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/workflows/deep-dive-instructions.md",
+        "hash": "660112330992733446"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/workflows/deep-dive-workflow.md",
+        "hash": "2822561097695135149"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/workflows/full-scan-instructions.md",
+        "hash": "8598976833621251269"
+      },
+      {
+        "file": ".claude/skills/bmad-document-project/workflows/full-scan-workflow.md",
+        "hash": "5568165060204204964"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/SKILL.md",
+        "hash": "7847455836504538624"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-01-init.md",
+        "hash": "594712294254123811"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-02-domain-analysis.md",
+        "hash": "3536273127717059215"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-03-competitive-landscape.md",
+        "hash": "17603580477608479958"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-04-regulatory-focus.md",
+        "hash": "1216667117839156007"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-05-technical-trends.md",
+        "hash": "7805163351506141088"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/domain-steps/step-06-research-synthesis.md",
+        "hash": "13214272086923652473"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".claude/skills/bmad-domain-research/workflow.md",
+        "hash": "15511829264601962685"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/SKILL.md",
+        "hash": "16175621365363482035"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/steps-e/step-e-01-discovery.md",
+        "hash": "4258492298878225510"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/steps-e/step-e-01b-legacy-conversion.md",
+        "hash": "1032462239205105517"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/steps-e/step-e-02-review.md",
+        "hash": "13386743929123652173"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/steps-e/step-e-03-edit.md",
+        "hash": "13447980961001274793"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/steps-e/step-e-04-complete.md",
+        "hash": "8805974689584439564"
+      },
+      {
+        "file": ".claude/skills/bmad-edit-prd/workflow.md",
+        "hash": "4258907003163407"
+      },
+      {
+        "file": ".claude/skills/bmad-editorial-review-prose/SKILL.md",
+        "hash": "5072801115167372301"
+      },
+      {
+        "file": ".claude/skills/bmad-editorial-review-structure/SKILL.md",
+        "hash": "18089304471567278123"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/SKILL.md",
+        "hash": "491526139945058169"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/project-context-template.md",
+        "hash": "16198873307860029369"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/steps/step-01-discover.md",
+        "hash": "17761795400597804126"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/steps/step-02-generate.md",
+        "hash": "14055435619033099137"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/steps/step-03-complete.md",
+        "hash": "2656171640537031455"
+      },
+      {
+        "file": ".claude/skills/bmad-generate-project-context/workflow.md",
+        "hash": "15354507563030647297"
+      },
+      {
+        "file": ".claude/skills/bmad-help/SKILL.md",
+        "hash": "1248156207875779362"
+      },
+      {
+        "file": ".claude/skills/bmad-index-docs/SKILL.md",
+        "hash": "15971880724061991689"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/SKILL.md",
+        "hash": "15583225715130869746"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-01-init.md",
+        "hash": "15797566555016269956"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-02-customer-behavior.md",
+        "hash": "2244147414656396779"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-03-customer-pain-points.md",
+        "hash": "10745517216175081277"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-04-customer-decisions.md",
+        "hash": "9511916271829004534"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-05-competitive-analysis.md",
+        "hash": "18339790969036131658"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/steps/step-06-research-completion.md",
+        "hash": "7683317996288597233"
+      },
+      {
+        "file": ".claude/skills/bmad-market-research/workflow.md",
+        "hash": "417154021661832121"
+      },
+      {
+        "file": ".claude/skills/bmad-party-mode/SKILL.md",
+        "hash": "15035569046181820338"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/SKILL.md",
+        "hash": "107643566196891578"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/agents/artifact-analyzer.md",
+        "hash": "16011652104537167723"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/agents/web-researcher.md",
+        "hash": "3544490108623390824"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/assets/prfaq-template.md",
+        "hash": "12383331898905589189"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/bmad-manifest.json",
+        "hash": "6897046073757224015"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/references/customer-faq.md",
+        "hash": "1340280954205680341"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/references/internal-faq.md",
+        "hash": "17440018059483964548"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/references/press-release.md",
+        "hash": "2379355368799073588"
+      },
+      {
+        "file": ".claude/skills/bmad-prfaq/references/verdict.md",
+        "hash": "4842835852093225664"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/SKILL.md",
+        "hash": "2367279591344153693"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/agents/artifact-analyzer.md",
+        "hash": "4932355451976527760"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/agents/opportunity-reviewer.md",
+        "hash": "14250277478665791631"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/agents/skeptic-reviewer.md",
+        "hash": "694649716052450372"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/agents/web-researcher.md",
+        "hash": "6073109525209948818"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/bmad-manifest.json",
+        "hash": "2319089694155120197"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/prompts/contextual-discovery.md",
+        "hash": "14887436455769090764"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/prompts/draft-and-review.md",
+        "hash": "11465840033103191211"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/prompts/finalize.md",
+        "hash": "10872793354800344335"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/prompts/guided-elicitation.md",
+        "hash": "744121004447276300"
+      },
+      {
+        "file": ".claude/skills/bmad-product-brief/resources/brief-template.md",
+        "hash": "5847448448440262609"
+      },
+      {
+        "file": ".claude/skills/bmad-qa-generate-e2e-tests/SKILL.md",
+        "hash": "14937250227133393551"
+      },
+      {
+        "file": ".claude/skills/bmad-qa-generate-e2e-tests/checklist.md",
+        "hash": "3950366603940392340"
+      },
+      {
+        "file": ".claude/skills/bmad-qa-generate-e2e-tests/workflow.md",
+        "hash": "11723518565031245513"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/SKILL.md",
+        "hash": "8082958643527115467"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/compile-epic-context.md",
+        "hash": "6400515359921826616"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/spec-template.md",
+        "hash": "13446974597524170803"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-01-clarify-and-route.md",
+        "hash": "16658605228521233593"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-02-plan.md",
+        "hash": "10147435519189415280"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-03-implement.md",
+        "hash": "9972983479375606868"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-04-review.md",
+        "hash": "17714577748168713698"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-05-present.md",
+        "hash": "15475756990799071912"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/step-oneshot.md",
+        "hash": "10892698334996031114"
+      },
+      {
+        "file": ".claude/skills/bmad-quick-dev/workflow.md",
+        "hash": "5003189906690821373"
+      },
+      {
+        "file": ".claude/skills/bmad-retrospective/SKILL.md",
+        "hash": "8166482636356921758"
+      },
+      {
+        "file": ".claude/skills/bmad-retrospective/workflow.md",
+        "hash": "130360601160558471"
+      },
+      {
+        "file": ".claude/skills/bmad-review-adversarial-general/SKILL.md",
+        "hash": "9139653658767280730"
+      },
+      {
+        "file": ".claude/skills/bmad-review-edge-case-hunter/SKILL.md",
+        "hash": "468865358474005404"
+      },
+      {
+        "file": ".claude/skills/bmad-shard-doc/SKILL.md",
+        "hash": "15230813634832680332"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-planning/SKILL.md",
+        "hash": "14261759594006282496"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-planning/checklist.md",
+        "hash": "5478054915995241315"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-planning/sprint-status-template.yaml",
+        "hash": "2641083988029770941"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-planning/workflow.md",
+        "hash": "9623339209447954554"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-status/SKILL.md",
+        "hash": "10783912266543011277"
+      },
+      {
+        "file": ".claude/skills/bmad-sprint-status/workflow.md",
+        "hash": "15645002253521701691"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/SKILL.md",
+        "hash": "14734456052156135193"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/research.template.md",
+        "hash": "8066408025561159823"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-01-init.md",
+        "hash": "4530043341371358371"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-02-technical-overview.md",
+        "hash": "17603107249466842520"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-03-integration-patterns.md",
+        "hash": "12929894768221916586"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-04-architectural-patterns.md",
+        "hash": "7714458535121214640"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-05-implementation-research.md",
+        "hash": "11463533761585550647"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/technical-steps/step-06-research-synthesis.md",
+        "hash": "16168586084543634096"
+      },
+      {
+        "file": ".claude/skills/bmad-technical-research/workflow.md",
+        "hash": "4401194737160943483"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/SKILL.md",
+        "hash": "12701876736775652825"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/data/domain-complexity.csv",
+        "hash": "8224418808064119357"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/data/prd-purpose.md",
+        "hash": "11764430001456253238"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/data/project-types.csv",
+        "hash": "987187688518743742"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-01-discovery.md",
+        "hash": "11272488254971154667"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-02-format-detection.md",
+        "hash": "17716943076159569896"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-02b-parity-check.md",
+        "hash": "4192576770070811694"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-03-density-validation.md",
+        "hash": "14935614900365684043"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-04-brief-coverage-validation.md",
+        "hash": "3316100686292072000"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-05-measurability-validation.md",
+        "hash": "5080146194932535991"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-06-traceability-validation.md",
+        "hash": "14988604414218019447"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-07-implementation-leakage-validation.md",
+        "hash": "2367278898432930974"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-08-domain-compliance-validation.md",
+        "hash": "9031716636505401095"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-09-project-type-validation.md",
+        "hash": "6224913081187985816"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-10-smart-validation.md",
+        "hash": "2662494547424286425"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-11-holistic-quality-validation.md",
+        "hash": "12707442519774644105"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-12-completeness-validation.md",
+        "hash": "11074240421935325424"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/steps-v/step-v-13-report-complete.md",
+        "hash": "16383978369050928965"
+      },
+      {
+        "file": ".claude/skills/bmad-validate-prd/workflow.md",
+        "hash": "17101376529820392203"
+      },
+      {
+        "file": ".codex",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "15449209813388555029"
+      },
+      {
+        "file": "AGENTS.md",
+        "hash": "5305443486311221519"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/001-runtime-transaction-definition-contract.md",
+        "hash": "916192953951366677"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/002-sales-invoice-manifest-skeleton.md",
+        "hash": "3057865851059790307"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/003-transaction-grid-row-engine.md",
+        "hash": "3770093801630679442"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/004-lookup-runtime-foundation.md",
+        "hash": "8122417726798247238"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/005-sales-customer-product-lookup-providers.md",
+        "hash": "4141691357995169940"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/006-sales-invoice-calculations.md",
+        "hash": "11482281664260022814"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/007-validation-save-orchestration.md",
+        "hash": "3499824363889896718"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/008-sales-invoice-ui-assembly.md",
+        "hash": "7418171139504006549"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/009-e2e-acceptance-harness.md",
+        "hash": "5763545717166867668"
+      },
+      {
+        "file": "_bmad-output/implementation-artifacts/stories/010-boundary-enforcement.md",
+        "hash": "13952975511707228165"
+      },
+      {
+        "file": "_bmad/_config/agent-manifest.csv",
+        "hash": "11773749371654496800"
+      },
+      {
+        "file": "_bmad/_config/bmad-help.csv",
+        "hash": "1504737005833377528"
+      },
+      {
+        "file": "_bmad/_config/files-manifest.csv",
+        "hash": "13230330400538627483"
+      },
+      {
+        "file": "_bmad/_config/manifest.yaml",
+        "hash": "10764240846156823632"
+      },
+      {
+        "file": "_bmad/_config/skill-manifest.csv",
+        "hash": "9206155288017488194"
+      },
+      {
+        "file": "_bmad/bmm/config.yaml",
+        "hash": "3229962123260449605"
+      },
+      {
+        "file": "_bmad/bmm/module-help.csv",
+        "hash": "9903887262832568148"
+      },
+      {
+        "file": "_bmad/core/config.yaml",
+        "hash": "2659595054597539013"
+      },
+      {
+        "file": "_bmad/core/module-help.csv",
+        "hash": "10375456206299128520"
+      },
+      {
+        "file": "docs/architecture.md",
+        "hash": "12334812224402012288"
+      },
+      {
+        "file": "docs/decisions/adr-001-form-definition-strategy.md",
+        "hash": "3392825087714356255"
+      },
+      {
+        "file": "docs/decisions/adr-002-two-layer-contract.md",
+        "hash": "1199242193143316139"
+      },
+      {
+        "file": "docs/decisions/adr-003-grid-v1.1.md",
+        "hash": "16131964318600386399"
+      },
+      {
+        "file": "docs/decisions/adr-004-lookup-v1.0.md",
+        "hash": "14408428735172487858"
+      },
+      {
+        "file": "docs/decisions/adr-005-platform-expansion-customization-governance.md",
+        "hash": "4893532539512633778"
+      },
+      {
+        "file": "docs/prd.md",
+        "hash": "5902117701407553122"
+      },
+      {
+        "file": "docs/problem-statement.md",
+        "hash": "10812692816855396735"
+      },
+      {
+        "file": "docs/vision.md",
+        "hash": "2705961429746292939"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10298355500662185641"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15093918643372405377"
+      },
+      {
+        "file": "package.json",
+        "hash": "14246975475387573754"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "9041536915049194485"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "8726042482092431592"
+      },
+      {
+        "file": "spec/modules/inventory/product-lookup.md",
+        "hash": "902634752307081320"
+      },
+      {
+        "file": "spec/modules/sales/sales-invoice.md",
+        "hash": "9991134799159200243"
+      },
+      {
+        "file": "spec/platform/custom-widget.md",
+        "hash": "16562755053763428519"
+      },
+      {
+        "file": "spec/platform/instance-config-contract.md",
+        "hash": "12957348371782329623"
+      },
+      {
+        "file": "spec/platform/lookup-autofill.md",
+        "hash": "15658786383954275143"
+      },
+      {
+        "file": "spec/platform/manifest-contract.md",
+        "hash": "16774686047879889719"
+      },
+      {
+        "file": "spec/platform/merge-engine.md",
+        "hash": "5617854613500451033"
+      },
+      {
+        "file": "spec/platform/transaction-grid.md",
+        "hash": "12945730203900283737"
+      },
+      {
+        "file": "spec/platform/transaction-shell.md",
+        "hash": "1612789244763193098"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "19302401947681451"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "1277315786227092144"
+      },
+      {
+        "file": "vitest.config.ts",
+        "hash": "10644077355851514912"
+      }
+    ]
+  }
+}

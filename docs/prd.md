@@ -39,3 +39,16 @@ Create a reusable ERP UI platform for transaction-heavy applications.
 - Virtualization beyond 100 rows
 - Barcode flow under 300ms target where feasible
 - Contracts must fail fast on invalid manifests and degrade gracefully on invalid config
+
+## Delivery model
+- Platform core ownership is senior-led
+- One senior engineer owns Platform Core, Merge Engine, and TransactionShell
+- Five to six junior engineers primarily extend the platform through module manifests and instance configs for specific verticals
+- Work that requires new platform escape hatches or contract exceptions requires senior review before implementation
+
+## Governance rules
+- If it needs async business logic, it is a module concern rather than a manifest, config, merge, or shell concern
+- If it needs custom UI beyond config-driven presentation, it must be treated as an explicit platform extension rather than ad hoc branching
+- Customer-specific needs should first be framed as reusable platform or module extensions, not one-off exceptions
+
+See also: ADR-005 for platform expansion governance, `CustomWidget` usage limits, and the Rule of Three for new primitives.

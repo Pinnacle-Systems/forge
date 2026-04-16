@@ -10,6 +10,7 @@
     ".": "./src/index.ts",
     "./transactions": "./src/transactions/index.ts",
     "./lookups": "./src/lookups/index.ts",
-    "./calculations": "./src/calculations/index.ts"
+    "./calculations": "./src/calculations/index.ts",
+    "./ui": "./src/ui/index.ts"
   }
 }

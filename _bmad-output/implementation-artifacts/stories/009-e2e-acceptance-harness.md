@@ -23,7 +23,7 @@ Add acceptance coverage proving the Sales Invoice vertical slice validates the F
 - Cover Sales Invoice scenario 2: barcode scan to row fill.
 - Cover Sales Invoice scenario 3: manual price override preserved on product change.
 - Cover Sales Invoice scenario 4: tax cascade updates totals.
-- Cover Sales Invoice scenario 5: save blocked or warned for discontinued items.
+- Cover Sales Invoice scenario 5: save blocked or enters explicit warning-confirmation for discontinued items.
 - Assert cross-cutting invariants: one phantom row, lookup snapshots, stale indicators, save-time revalidation, and non-blocking navigation validation.
 
 ## Out of Scope
@@ -43,7 +43,7 @@ Add acceptance coverage proving the Sales Invoice vertical slice validates the F
 - [ ] Write E2E coverage for barcode scan to row fill.
 - [ ] Write E2E coverage for manual price override preserved on product change.
 - [ ] Write E2E coverage for tax cascade updating totals.
-- [ ] Write E2E coverage for discontinued product block or warning behavior.
+- [ ] Write E2E coverage for discontinued product block or warning-confirmation behavior.
 - [ ] Add invariant assertions for exactly one phantom row.
 - [ ] Add invariant assertions for lookup snapshots and stale indicators.
 - [ ] Add save-time revalidation test using changed backend/provider fixture state.

@@ -1,0 +1,15 @@
+{
+  "name": "@forge/platform",
+  "root": "packages/platform",
+  "sourceRoot": "packages/platform/src",
+  "projectType": "library",
+  "tags": ["scope:platform", "type:platform"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["packages/platform/**/*.ts"]
+      }
+    }
+  }
+}

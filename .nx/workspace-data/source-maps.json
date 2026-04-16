@@ -1,0 +1,304 @@
+{
+  "packages/modules/inventory": {
+    "root": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "packages/modules/inventory/package.json",
+      "nx/core/package-json"
+    ],
+    "sourceRoot": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:module": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:inventory": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:module": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "packages/modules/inventory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "packages/modules/sales": {
+    "root": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "packages/modules/sales/package.json",
+      "nx/core/package-json"
+    ],
+    "sourceRoot": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:module": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:sales": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:module": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "packages/modules/sales/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "packages/platform": {
+    "root": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "packages/platform/package.json",
+      "nx/core/package-json"
+    ],
+    "sourceRoot": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:platform": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:platform": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "packages/platform/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

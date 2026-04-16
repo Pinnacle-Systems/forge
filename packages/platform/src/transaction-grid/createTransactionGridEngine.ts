@@ -91,6 +91,7 @@ export function createTransactionGridEngine(
       row.values[buffer.columnId] = clone(buffer.value);
       row.metadata.revision += 1;
       row.metadata.generation += 1;
+      markManualOverride(row, buffer.columnId);
 
       if (!row.metadata.isPhantom && row.state !== 'new') {
         row.state = 'dirty';
@@ -336,6 +337,7 @@ export function createTransactionGridEngine(
     row.values[column.id] = undefined;
     row.metadata.revision += 1;
     row.metadata.generation += 1;
+    markManualOverride(row, column.id);
 
     if (!row.metadata.isPhantom && row.state !== 'new') {
       row.state = 'dirty';
@@ -388,6 +390,22 @@ function applyMetadataPatch(row: GridRow, patch: GridRowMetadataPatch): void {
   mergeMetadataRecord(row.metadata.lookupSnapshots, patch.lookupSnapshots);
   mergeMetadataRecord(row.metadata.autofill, patch.autofill);
   mergeMetadataRecord(row.metadata.stale, patch.stale);
+}
+
+function markManualOverride(row: GridRow, fieldId: TransactionElementId): void {
+  const existingAutofill = row.metadata.autofill[fieldId];
+  const existingStale = row.metadata.stale[fieldId];
+
+  if (!existingAutofill && !existingStale) {
+    return;
+  }
+
+  row.metadata.autofill[fieldId] = {
+    sourceColumnId: existingAutofill?.sourceColumnId ?? fieldId,
+    mode: existingAutofill?.mode ?? 'external',
+    preservedManualOverride: true,
+  };
+  delete row.metadata.stale[fieldId];
 }
 
 function mergeMetadataRecord<T>(

@@ -4,11 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "lint": "NX_DAEMON=false nx run-many -t lint",
+    "lint:eslint": "eslint packages --ext .ts",
+    "lint:boundaries": "NX_DAEMON=false nx run-many -t lint",
+    "test:acceptance": "vitest run packages/modules/sales/src/ui/__tests__/*.acceptance.test.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@nx/eslint": "^20.4.0",
+    "@nx/eslint-plugin": "^20.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
     "@vitest/coverage-v8": "^3.0.0",
+    "eslint": "^9.24.0",
+    "nx": "^20.4.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
   }

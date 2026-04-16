@@ -61,6 +61,7 @@ export type {
 export {
   ManifestValidationError,
   ConfigValidationWarning,
+  ConfigVersionMismatchError,
   mergeTransactionDefinition,
 } from './runtime-definition';
 export {

@@ -2,11 +2,13 @@ import type { TransactionInstanceConfig } from '../../types';
 
 export const emptyConfig: TransactionInstanceConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {},
 };
 
 export const validPresentationConfig: TransactionInstanceConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {
     reference: {
       label: 'PO Reference',
@@ -25,6 +27,7 @@ export const validPresentationConfig: TransactionInstanceConfig = {
 
 export const unknownTargetConfig: TransactionInstanceConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {
     missingField: {
       label: 'Missing',
@@ -34,6 +37,7 @@ export const unknownTargetConfig: TransactionInstanceConfig = {
 
 export const unauthorizedOverrideConfig: TransactionInstanceConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {
     lineTotal: {
       editable: true,
@@ -43,6 +47,7 @@ export const unauthorizedOverrideConfig: TransactionInstanceConfig = {
 
 export const businessLogicOverrideConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {
     lineTotal: {
       calculationRef: 'customer.sneakyFormula',
@@ -67,6 +72,7 @@ export const businessLogicOverrideConfig = {
 
 export const invalidValueConfig = {
   transactionType: 'sales.invoice',
+  targetManifestVersion: '1.0.0',
   overrides: {
     reference: {
       visible: 'yes',

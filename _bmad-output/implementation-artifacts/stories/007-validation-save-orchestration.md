@@ -130,8 +130,12 @@ export interface SaveValidationContext extends ValidationContext {
 export interface TransactionShellOptions {
   gridEngine: TransactionGridEngine; // From Story 003
   manifest: ResolvedTransactionDefinition; // From Story 001
+  getHeaderValues?: () => Record<string, any>;
   validationHooks: {
+    header?: Array<(context: ValidationContext) => ValidationIssue[]>;
     row?: Array<(context: RowValidationContext) => ValidationIssue[]>;
+    footer?: Array<(context: SaveValidationContext) => ValidationIssue[]>;
+    crossField?: Array<(context: SaveValidationContext) => ValidationIssue[]>;
     save?: Array<(context: SaveValidationContext) => Promise<ValidationIssue[]>>;
   };
   saveHandler: (context: SaveValidationContext) => Promise<{ ok: boolean; error?: string }>; // The actual persistence call

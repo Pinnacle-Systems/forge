@@ -1,14 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createInventoryProductLookupProvider } from '../productLookupProvider';
 
-const provider = createInventoryProductLookupProvider({
-  customerPricing: [{
-    customerId: 'customer-beta',
-    priceOverrides: {
-      'product-widget': 8.5,
-    },
-  }],
-});
+const provider = createInventoryProductLookupProvider();
 
 const context = {
   fieldId: 'product',
@@ -83,7 +76,7 @@ describe('createInventoryProductLookupProvider', () => {
     });
   });
 
-  it('enrich applies customer-specific pricing', async () => {
+  it('enrich ignores customer-specific context and returns product master data only', async () => {
     await expect(provider.enrich?.({
       entityId: 'product-widget',
       snapshotValues: {},
@@ -93,20 +86,7 @@ describe('createInventoryProductLookupProvider', () => {
         rowValues: { quantity: 100 },
       },
     })).resolves.toMatchObject({
-      unitPrice: 8.5,
-    });
-  });
-
-  it('enrich applies quantity pricing when no customer override takes precedence', async () => {
-    await expect(provider.enrich?.({
-      entityId: 'product-widget',
-      snapshotValues: {},
-      context: {
-        ...context,
-        rowValues: { quantity: 10 },
-      },
-    })).resolves.toMatchObject({
-      unitPrice: 9,
+      unitPrice: 10,
     });
   });
 

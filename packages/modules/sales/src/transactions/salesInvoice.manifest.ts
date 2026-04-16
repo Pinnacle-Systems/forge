@@ -2,7 +2,7 @@ import type { TransactionManifest } from '@forge/platform/runtime-definition';
 
 export const salesInvoiceManifest: TransactionManifest = {
   transactionType: 'sales.invoice',
-  version: '1.0.0',
+  schemaVersion: '1.0.0',
   title: 'Sales Invoice',
   hooks: {
     calculations: [
@@ -17,9 +17,9 @@ export const salesInvoiceManifest: TransactionManifest = {
       'sales.invoice.validateDiscontinuedItems',
     ],
     lookupProviders: [
-      'sales.customerLookup',
-      'inventory.productLookup',
-      'sales.taxCodeLookup',
+      'sales.customer',
+      'inventory.product',
+      'sales.taxCode',
     ],
     persistence: 'sales.invoice.save',
   },
@@ -31,7 +31,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         kind: 'lookup',
         order: 10,
         required: true,
-        lookupProviderRef: 'sales.customerLookup',
+        lookupProviderRef: 'sales.customer',
         validationRefs: ['sales.invoice.validateCustomer'],
         overridePermissions: { label: true, visible: true, required: true, order: true },
       },
@@ -60,7 +60,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         kind: 'lookup',
         order: 10,
         required: true,
-        lookupProviderRef: 'inventory.productLookup',
+        lookupProviderRef: 'inventory.product',
         validationRefs: ['sales.invoice.validateProduct'],
         overridePermissions: { label: true, width: true, order: true },
       },
@@ -85,7 +85,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         label: 'Tax Code',
         kind: 'lookup',
         order: 40,
-        lookupProviderRef: 'sales.taxCodeLookup',
+        lookupProviderRef: 'sales.taxCode',
         overridePermissions: { label: true, width: true, order: true },
       },
       {

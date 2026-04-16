@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/eslint.config.mjs"
+    ]
+  },
+  "targetDefaults": {
+    "lint": {
+      "inputs": [
+        "default",
+        "^default"
+      ]
+    }
+  }
+}

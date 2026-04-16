@@ -1,0 +1,43 @@
+{
+  "run": {
+    "command": "nx run-many -t lint",
+    "startTime": "2026-04-16T07:20:48.479Z",
+    "endTime": "2026-04-16T07:20:50.816Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@forge/inventory:lint",
+      "target": "lint",
+      "projectName": "@forge/inventory",
+      "hash": "4071547620008484832",
+      "startTime": "2026-04-16T07:20:48.581Z",
+      "endTime": "2026-04-16T07:20:50.617Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@forge/sales:lint",
+      "target": "lint",
+      "projectName": "@forge/sales",
+      "hash": "12545984190405752169",
+      "startTime": "2026-04-16T07:20:48.581Z",
+      "endTime": "2026-04-16T07:20:50.687Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "@forge/platform:lint",
+      "target": "lint",
+      "projectName": "@forge/platform",
+      "hash": "1841857987806012762",
+      "startTime": "2026-04-16T07:20:48.581Z",
+      "endTime": "2026-04-16T07:20:50.815Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

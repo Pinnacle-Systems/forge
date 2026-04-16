@@ -19,3 +19,13 @@ export class ConfigValidationWarning extends Error {
     this.diagnostics = diagnostics;
   }
 }
+
+export class ConfigVersionMismatchError extends Error {
+  readonly diagnostics: MergeDiagnostic[];
+
+  constructor(diagnostics: MergeDiagnostic[]) {
+    super(`Transaction instance config targets an incompatible manifest version: ${diagnostics.map((diagnostic) => diagnostic.message).join('; ')}`);
+    this.name = 'ConfigVersionMismatchError';
+    this.diagnostics = diagnostics;
+  }
+}

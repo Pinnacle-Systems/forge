@@ -75,7 +75,7 @@ Compose the runtime definition, TransactionShell, TransactionGrid, lookup runtim
 - Barcode scan fills a row through lookup runtime.
 - Manual price override survives product change and shows stale state when appropriate.
 - Tax cascade updates footer totals.
-- Save blocks or warns for discontinued items according to module validation policy.
+- Save blocks or enters an explicit warning-confirmation flow for discontinued items according to module validation policy.
 
 ## Definition of Done
 - Sales Invoice UI is assembled and usable.

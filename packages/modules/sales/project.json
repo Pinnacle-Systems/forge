@@ -1,0 +1,15 @@
+{
+  "name": "@forge/sales",
+  "root": "packages/modules/sales",
+  "sourceRoot": "packages/modules/sales/src",
+  "projectType": "library",
+  "tags": ["scope:module", "domain:sales", "type:module"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["packages/modules/sales/**/*.ts"]
+      }
+    }
+  }
+}

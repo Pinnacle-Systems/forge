@@ -16,8 +16,12 @@ function createMockOptions(): TransactionShellOptions {
       getSnapshot: () => mockSnapshot,
     } as unknown as TransactionGridEngine,
     manifest: {} as any,
+    getHeaderValues: () => ({ customer: 'customer-acme' }),
     validationHooks: {
+      header: [],
       row: [],
+      footer: [],
+      crossField: [],
       save: [],
     },
     saveHandler: vi.fn().mockResolvedValue({ ok: true }),
@@ -111,6 +115,22 @@ describe('createTransactionShell (Save Lifecycle)', () => {
     
     expect(result.status).toBe('failed');
     expect(shell.getState()).toBe('error'); // Error state strictly reserved for saveHandler failure
+  });
+
+  it('passes header values to validations and save handler', async () => {
+    const opts = createMockOptions();
+    opts.validationHooks.header = [
+      ({ headerValues }) => headerValues.customer === 'customer-acme'
+        ? []
+        : [{ id: 'missing-customer', severity: 'error', message: 'Missing customer' }],
+    ];
+
+    const shell = createTransactionShell(opts);
+    await shell.requestSave();
+
+    expect(opts.saveHandler).toHaveBeenCalledWith(expect.objectContaining({
+      headerValues: { customer: 'customer-acme' },
+    }));
   });
 
   it('deterministically ignores duplicate/spam requests during validation or saving', async () => {

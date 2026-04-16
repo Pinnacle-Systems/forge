@@ -24,6 +24,7 @@ Establish the minimal platform runtime contract that turns module-owned `Transac
 - Instance config cannot alter calculations, validations, lookup providers, workflow transitions, persistence rules, hook references, field IDs, field kinds, or grid behavior.
 - Invalid manifest fails fast with a thrown manifest validation error.
 - Invalid config degrades gracefully: ignore the invalid override, emit a warning diagnostic, and continue resolution.
+- Incompatible manifest/config versions fail hard before resolution.
 - Unknown config target IDs are ignored with warning diagnostics.
 - Resolved output is normalized and sorted before rendering.
 - No customer-specific branching in platform code.
@@ -87,6 +88,7 @@ export type {
 export {
   ManifestValidationError,
   ConfigValidationWarning,
+  ConfigVersionMismatchError,
 } from './errors';
 
 export {
@@ -102,6 +104,7 @@ Implement these minimum types in `types.ts`. Keep names stable unless existing r
 ```ts
 export type TransactionElementId = string;
 export type HookRef = string;
+export type SchemaVersion = string;
 
 export type OverrideProperty =
   | 'visible'
@@ -144,7 +147,8 @@ export interface MergeDiagnostic {
     | 'UNKNOWN_OVERRIDE_PROPERTY'
     | 'OVERRIDE_NOT_PERMITTED'
     | 'BUSINESS_LOGIC_OVERRIDE_IGNORED'
-    | 'INVALID_OVERRIDE_VALUE';
+    | 'INVALID_OVERRIDE_VALUE'
+    | 'MANIFEST_VERSION_MISMATCH';
   targetId?: TransactionElementId;
   property?: DiagnosticProperty;
   message: string;
@@ -184,7 +188,7 @@ export type ManifestElementIndex = Record<
 
 export interface TransactionManifest {
   transactionType: string;
-  version: string;
+  schemaVersion: SchemaVersion;
   title: string;
   header: {
     fields: ManifestField[];
@@ -214,6 +218,7 @@ export interface InstanceOverride {
 
 export interface TransactionInstanceConfig {
   transactionType: string;
+  targetManifestVersion?: SchemaVersion;
   overrides?: Record<TransactionElementId, InstanceOverride>;
 }
 
@@ -248,7 +253,7 @@ export interface ResolvedFooterField {
 
 export interface ResolvedTransactionDefinition {
   transactionType: string;
-  version: string;
+  schemaVersion: SchemaVersion;
   title: string;
   header: {
     fields: ResolvedField[];
@@ -296,7 +301,7 @@ export function validateManifest(manifest: TransactionManifest): void;
 
 Rules:
 - Throw `ManifestValidationError` for any manifest issue.
-- Require `transactionType`, `version`, `title`, `header.fields`, `grid.columns`, and `footer.fields`.
+- Require `transactionType`, `schemaVersion`, `title`, `header.fields`, `grid.columns`, and `footer.fields`.
 - Require every field/column/footer element to have `id`, `label`, `kind`, and stable numeric `order`.
 - Require IDs to be unique across header fields, grid columns, and footer fields.
 - Require lookup fields with `lookupProviderRef` to list that provider in `hooks.lookupProviders`.
@@ -341,6 +346,7 @@ export function mergeTransactionDefinition(
 Rules:
 - Call `validateManifest` first and fail fast on manifest errors.
 - Call `validateInstanceConfig` and collect warning diagnostics.
+- Fail hard when `targetManifestVersion` is incompatible with manifest `schemaVersion`.
 - Build a flat manifest element index by `id` before applying overrides.
 - Deep clone manifest-derived structures before applying overrides; never mutate manifest or config inputs.
 - Apply only valid, authorized presentation overrides.
@@ -400,7 +406,7 @@ Rules:
 
 ### `mergeTransactionDefinition.test.ts`
 - Resolves a valid Sales Invoice manifest with no config.
-  - Expects resolved `transactionType`, `version`, and `title` to match manifest.
+  - Expects resolved `transactionType`, `schemaVersion`, and `title` to match manifest.
   - Expects header fields, grid columns, and footer fields to be sorted by `order`.
   - Expects default `visible: true`, `editable: true`, `required: false`.
   - Expects `diagnostics` to be empty.
@@ -467,7 +473,7 @@ The Sales Invoice fixture must include only hook references, not hook implementa
 ```ts
 export const salesInvoiceManifest: TransactionManifest = {
   transactionType: 'sales.invoice',
-  version: '1.0.0',
+  schemaVersion: '1.0.0',
   title: 'Sales Invoice',
   hooks: {
     calculations: [
@@ -482,8 +488,8 @@ export const salesInvoiceManifest: TransactionManifest = {
       'sales.invoice.validateDiscontinuedItems',
     ],
     lookupProviders: [
-      'sales.customerLookup',
-      'inventory.productLookup',
+      'sales.customer',
+      'inventory.product',
     ],
     persistence: 'sales.invoice.save',
   },
@@ -494,7 +500,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         label: 'Customer',
         kind: 'lookup',
         order: 10,
-        lookupProviderRef: 'sales.customerLookup',
+        lookupProviderRef: 'sales.customer',
         validationRefs: ['sales.invoice.validateCustomer'],
         overridePermissions: { label: true, visible: true, required: true, order: true },
       },
@@ -522,7 +528,7 @@ export const salesInvoiceManifest: TransactionManifest = {
         label: 'Product',
         kind: 'lookup',
         order: 10,
-        lookupProviderRef: 'inventory.productLookup',
+        lookupProviderRef: 'inventory.product',
         validationRefs: ['sales.invoice.validateProduct'],
         overridePermissions: { label: true, width: true, order: true },
       },

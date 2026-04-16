@@ -1,5 +1,6 @@
 export type TransactionElementId = string;
 export type HookRef = string;
+export type SchemaVersion = string;
 
 export type OverrideProperty =
   | 'visible'
@@ -42,7 +43,8 @@ export interface MergeDiagnostic {
     | 'UNKNOWN_OVERRIDE_PROPERTY'
     | 'OVERRIDE_NOT_PERMITTED'
     | 'BUSINESS_LOGIC_OVERRIDE_IGNORED'
-    | 'INVALID_OVERRIDE_VALUE';
+    | 'INVALID_OVERRIDE_VALUE'
+    | 'MANIFEST_VERSION_MISMATCH';
   targetId?: TransactionElementId;
   property?: DiagnosticProperty;
   message: string;
@@ -82,7 +84,7 @@ export type ManifestElementIndex = Record<
 
 export interface TransactionManifest {
   transactionType: string;
-  version: string;
+  schemaVersion: SchemaVersion;
   title: string;
   header: {
     fields: ManifestField[];
@@ -112,6 +114,7 @@ export interface InstanceOverride {
 
 export interface TransactionInstanceConfig {
   transactionType: string;
+  targetManifestVersion?: SchemaVersion;
   overrides?: Record<TransactionElementId, InstanceOverride>;
 }
 
@@ -146,7 +149,7 @@ export interface ResolvedFooterField {
 
 export interface ResolvedTransactionDefinition {
   transactionType: string;
-  version: string;
+  schemaVersion: SchemaVersion;
   title: string;
   header: {
     fields: ResolvedField[];

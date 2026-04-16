@@ -9,6 +9,7 @@ export type {
 export {
   ManifestValidationError,
   ConfigValidationWarning,
+  ConfigVersionMismatchError,
 } from './errors';
 
 export {
