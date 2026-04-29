@@ -31,8 +31,8 @@ Forge is a contract-driven ERP UI platform.
 
 ## Before coding
 1. Read `docs/architecture.md`
-2. Read the relevant `spec/platform/*.md`
-3. Read the relevant `spec/modules/**`
+2. Read the relevant `docs/spec/platform/*.md`
+3. Read the relevant `docs/spec/modules/**`
 4. Summarize constraints being applied
 5. Make the smallest valid change
 6. Add or update tests
