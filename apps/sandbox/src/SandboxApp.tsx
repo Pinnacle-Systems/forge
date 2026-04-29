@@ -1,4 +1,16 @@
 import { startTransition, useDeferredValue, useEffect, useRef, useState } from 'react';
+import {
+  Button,
+  ButtonGroup,
+  Callout,
+  Card,
+  FormGroup,
+  HTMLSelect,
+  HTMLTable,
+  InputGroup,
+  Intent,
+  Tag,
+} from '@blueprintjs/core';
 import { createSalesInvoiceScreen } from '@forge/sales/ui';
 import type {
   SalesInvoiceCellView,
@@ -61,7 +73,7 @@ export function SandboxApp() {
           query,
           results: results.map((result) => ({
             entityId: result.entityId,
-            label: result.label,
+            label: result.label ?? result.entityId,
           })),
           loading: false,
         },
@@ -102,7 +114,7 @@ export function SandboxApp() {
           query,
           results: results.map((result) => ({
             entityId: result.entityId,
-            label: result.label,
+            label: result.label ?? result.entityId,
           })),
           loading: false,
         },
@@ -156,61 +168,66 @@ export function SandboxApp() {
       <aside className="sidebar">
         <h1>Forge Sandbox</h1>
         <p className="eyebrow">Dev-only inspection harness for Story 008</p>
-        <div className="actions">
-          <button type="button" onClick={handleRefresh}>Refresh VM</button>
-          <button type="button" onClick={handleSave}>Save</button>
-          <button
+        <ButtonGroup className="actions" minimal={false}>
+          <Button type="button" icon="refresh" onClick={handleRefresh}>Refresh VM</Button>
+          <Button type="button" intent={Intent.PRIMARY} icon="floppy-disk" onClick={handleSave}>Save</Button>
+          <Button
             type="button"
+            icon="tick"
             onClick={handleConfirmSave}
             disabled={viewModel.saveLifecycle.state !== 'confirming'}
           >
             Confirm Save
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
+            icon="cross"
             onClick={handleCancelSave}
             disabled={viewModel.saveLifecycle.state !== 'confirming'}
           >
             Cancel Save
-          </button>
-        </div>
+          </Button>
+        </ButtonGroup>
 
-        <section className="panel">
+        <Card className="panel" compact>
           <h2>Status</h2>
-          <p>{statusMessage}</p>
-          <p>Grid mode: <strong>{viewModel.grid.mode}</strong></p>
-          <p>Focused cell: <strong>{viewModel.grid.focus.rowId}</strong> / <strong>{viewModel.grid.focus.columnId}</strong></p>
-          <p>Save state: <strong>{viewModel.saveLifecycle.state}</strong></p>
-          <p>Warnings: <strong>{String(viewModel.saveLifecycle.validationSummary.hasWarnings)}</strong></p>
-          <p>Errors: <strong>{String(viewModel.saveLifecycle.validationSummary.hasErrors)}</strong></p>
-        </section>
+          <Callout className="statusCallout" intent={statusIntent(viewModel)}>{statusMessage}</Callout>
+          <dl className="statusGrid">
+            <div><dt>Grid mode</dt><dd><Tag>{viewModel.grid.mode}</Tag></dd></div>
+            <div><dt>Focused cell</dt><dd><Tag minimal>{viewModel.grid.focus.rowId} / {viewModel.grid.focus.columnId}</Tag></dd></div>
+            <div><dt>Save state</dt><dd><Tag intent={saveStateIntent(viewModel.saveLifecycle.state)}>{viewModel.saveLifecycle.state}</Tag></dd></div>
+            <div><dt>Warnings</dt><dd><Tag intent={viewModel.saveLifecycle.validationSummary.hasWarnings ? Intent.WARNING : Intent.NONE}>{String(viewModel.saveLifecycle.validationSummary.hasWarnings)}</Tag></dd></div>
+            <div><dt>Errors</dt><dd><Tag intent={!viewModel.saveLifecycle.validationSummary.isValid ? Intent.DANGER : Intent.NONE}>{String(!viewModel.saveLifecycle.validationSummary.isValid)}</Tag></dd></div>
+          </dl>
+        </Card>
 
-        <section className="panel">
+        <Card className="panel" compact>
           <h2>Validation Summary</h2>
           <ul className="issueList">
             {viewModel.saveLifecycle.validationSummary.issues.map((issue) => (
               <li key={issue.id} className={`issue issue-${issue.severity}`}>
-                {issue.severity}: {issue.message}
+                <Tag intent={issueIntent(issue.severity)}>{issue.severity}</Tag>
+                <span>{issue.message}</span>
               </li>
             ))}
             {viewModel.saveLifecycle.validationSummary.issues.length === 0 ? <li>No active issues.</li> : null}
           </ul>
-        </section>
+        </Card>
 
-        <section className="panel debugPanel">
+        <Card className="panel debugPanel" compact>
           <h2>View Model JSON</h2>
           <pre>{JSON.stringify(deferredViewModel, null, 2)}</pre>
-        </section>
+        </Card>
       </aside>
 
       <main className="workspace">
-        <section className="card">
+        <Card className="card headerCard" compact>
           <div className="cardHeader">
             <div>
               <p className="eyebrow">{viewModel.title}</p>
               <h2>Header</h2>
             </div>
-            <span className="layoutTag">{viewModel.layout.header} / {viewModel.layout.body} / {viewModel.layout.footer}</span>
+            <Tag className="layoutTag" minimal>{viewModel.layout.header} / {viewModel.layout.body} / {viewModel.layout.footer}</Tag>
           </div>
           <div className="headerGrid">
             {viewModel.header.fields.map((field) => (
@@ -238,9 +255,9 @@ export function SandboxApp() {
               />
             ))}
           </div>
-        </section>
+        </Card>
 
-        <section className="card">
+        <Card className="card gridCard" compact>
           <div className="cardHeader">
             <div>
               <p className="eyebrow">Keyboard-first inspection</p>
@@ -248,7 +265,7 @@ export function SandboxApp() {
             </div>
           </div>
           <div className="tableWrap">
-            <table>
+            <HTMLTable compact striped interactive={false}>
               <thead>
                 <tr>
                   <th>Row</th>
@@ -308,11 +325,11 @@ export function SandboxApp() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </HTMLTable>
           </div>
-        </section>
+        </Card>
 
-        <section className="card">
+        <Card className="card footerCard" compact>
           <div className="cardHeader">
             <div>
               <p className="eyebrow">Resolved footer</p>
@@ -327,7 +344,7 @@ export function SandboxApp() {
               </div>
             ))}
           </div>
-        </section>
+        </Card>
       </main>
     </div>
   );
@@ -346,24 +363,32 @@ function HeaderFieldEditor(props: {
   if (field.kind === 'lookup') {
     return (
       <div className="field">
-        <label htmlFor={`header-${field.id}`}>{field.label}</label>
-        <input
+        <FormGroup label={field.label} labelFor={`header-${field.id}`}>
+        <InputGroup
           id={`header-${field.id}`}
           value={lookupState?.query ?? ''}
           onChange={(event) => props.onLookupQueryChange(event.target.value)}
           placeholder={`Search ${field.label}`}
+          rightElement={
+            <Button
+              type="button"
+              icon="search"
+              loading={lookupState?.loading}
+              minimal
+              onClick={props.onLookupSearch}
+            />
+          }
+          fill
         />
-        <div className="inlineActions">
-          <button type="button" onClick={props.onLookupSearch}>
-            {lookupState?.loading ? 'Searching...' : 'Search'}
-          </button>
-          <select defaultValue="" onChange={(event) => event.target.value && props.onLookupSelect(event.target.value)}>
+        </FormGroup>
+        {(lookupState?.results.length ?? 0) > 0 ? (
+          <HTMLSelect fill defaultValue="" onChange={(event) => event.target.value && props.onLookupSelect(event.target.value)}>
             <option value="">Select result</option>
             {(lookupState?.results ?? []).map((result) => (
               <option key={result.entityId} value={result.entityId}>{result.label}</option>
             ))}
-          </select>
-        </div>
+          </HTMLSelect>
+        ) : null}
         {field.lookupSnapshot ? <small>Snapshot: {field.lookupSnapshot.entityId}</small> : null}
         {field.validationMessages.length > 0 ? <small className="errorText">{field.validationMessages.join(', ')}</small> : null}
         {lookupState?.error ? <small className="errorText">{lookupState.error}</small> : null}
@@ -373,13 +398,15 @@ function HeaderFieldEditor(props: {
 
   return (
     <div className="field">
-      <label htmlFor={`header-${field.id}`}>{field.label}</label>
-      <input
+      <FormGroup label={field.label} labelFor={`header-${field.id}`}>
+      <InputGroup
         key={`${field.id}:${String(field.value ?? '')}`}
         id={`header-${field.id}`}
         defaultValue={String(field.value ?? '')}
         onBlur={(event) => props.onValueCommit(event.target.value)}
+        fill
       />
+      </FormGroup>
       {field.validationMessages.length > 0 ? <small className="errorText">{field.validationMessages.join(', ')}</small> : null}
     </div>
   );
@@ -416,8 +443,8 @@ function GridCellEditor(props: {
   if (cell.kind === 'lookup') {
     return (
       <div className={className}>
-        <input
-          ref={props.setGridRef}
+        <InputGroup
+          inputRef={props.setGridRef}
           defaultValue={lookupState?.query ?? ''}
           onFocus={props.onFocus}
           onKeyDown={(event) => {
@@ -434,18 +461,25 @@ function GridCellEditor(props: {
           }}
           onChange={(event) => props.onLookupQueryChange(event.target.value)}
           placeholder={String(cell.value ?? 'Search')}
+          rightElement={
+            <Button
+              type="button"
+              icon="search"
+              loading={lookupState?.loading}
+              minimal
+              onClick={props.onLookupSearch}
+            />
+          }
+          fill
         />
-        <div className="inlineActions">
-          <button type="button" onClick={props.onLookupSearch}>
-            {lookupState?.loading ? 'Searching...' : 'Search'}
-          </button>
-          <select onChange={(event) => event.target.value && props.onLookupSelect(event.target.value)} defaultValue="">
+        {(lookupState?.results.length ?? 0) > 0 ? (
+          <HTMLSelect fill onChange={(event) => event.target.value && props.onLookupSelect(event.target.value)} defaultValue="">
             <option value="">Pick</option>
             {(lookupState?.results ?? []).map((result) => (
               <option key={result.entityId} value={result.entityId}>{result.label}</option>
             ))}
-          </select>
-        </div>
+          </HTMLSelect>
+        ) : null}
         {row.lookupSnapshots[cell.id] ? <small>Snapshot: {row.lookupSnapshots[cell.id]?.entityId}</small> : null}
         {cell.staleReason ? <small className="warningText">Stale: {cell.staleReason}</small> : null}
         {cell.validationMessages.length > 0 ? <small className="errorText">{cell.validationMessages.join(', ')}</small> : null}
@@ -456,9 +490,9 @@ function GridCellEditor(props: {
 
   return (
     <div className={className}>
-        <input
+        <InputGroup
           key={`${props.refKey}:${String(cell.value ?? '')}`}
-          ref={props.setGridRef}
+          inputRef={props.setGridRef}
           defaultValue={String(cell.value ?? '')}
           onFocus={props.onFocus}
           onBlur={(event) => props.onValueCommit(event.target.value)}
@@ -477,6 +511,7 @@ function GridCellEditor(props: {
             altKey: event.altKey,
           });
         }}
+        fill
       />
       {cell.staleReason ? <small className="warningText">Stale: {cell.staleReason}</small> : null}
       {cell.validationMessages.length > 0 ? <small className="errorText">{cell.validationMessages.join(', ')}</small> : null}
@@ -511,4 +546,32 @@ function shouldPreventDefaultGridKey(key: string, ctrlKey?: boolean, metaKey?: b
     key === 'Backspace' ||
     ((ctrlKey || metaKey) && key.toLowerCase() === 's')
   );
+}
+
+function statusIntent(viewModel: SalesInvoiceScreenViewModel) {
+  if (!viewModel.saveLifecycle.validationSummary.isValid) {
+    return Intent.DANGER;
+  }
+
+  if (viewModel.saveLifecycle.validationSummary.hasWarnings || viewModel.saveLifecycle.state === 'confirming') {
+    return Intent.WARNING;
+  }
+
+  return Intent.SUCCESS;
+}
+
+function saveStateIntent(state: SalesInvoiceScreenViewModel['saveLifecycle']['state']) {
+  return state === 'idle' ? Intent.NONE : state === 'confirming' ? Intent.WARNING : Intent.PRIMARY;
+}
+
+function issueIntent(severity: string) {
+  if (severity === 'error' || severity === 'block') {
+    return Intent.DANGER;
+  }
+
+  if (severity === 'warning' || severity === 'warn') {
+    return Intent.WARNING;
+  }
+
+  return Intent.PRIMARY;
 }
