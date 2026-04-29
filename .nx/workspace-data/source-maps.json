@@ -1,4 +1,182 @@
 {
+  "apps/sandbox": {
+    "root": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.executor": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.options.script": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.scriptContent": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build.metadata.runCommand": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.executor": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options.script": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.scriptContent": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.runCommand": [
+      "apps/sandbox/package.json",
+      "nx/core/package-json"
+    ],
+    "sourceRoot": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:tooling": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:app": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "apps/sandbox/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
   "packages/modules/inventory": {
     "root": [
       "packages/modules/inventory/project.json",

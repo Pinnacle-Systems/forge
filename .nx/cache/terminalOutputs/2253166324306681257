@@ -1,0 +1,11 @@
+
+Linting "@forge/sandbox"...
+[0m[0m
+[0m[4m/home/ajay/workspace/forge/apps/sandbox/src/SandboxApp.tsx[24m[0m
+[0m  [2m2:1[22m  [31merror[39m  A project without tags matching at least one constraint cannot depend on any libraries  [2m@nx/enforce-module-boundaries[22m[0m
+[0m  [2m3:1[22m  [31merror[39m  A project without tags matching at least one constraint cannot depend on any libraries  [2m@nx/enforce-module-boundaries[22m[0m
+[0m[0m
+[0m[31m[1m✖ 2 problems (2 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+✖ 2 problems (2 errors, 0 warnings)
+
