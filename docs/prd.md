@@ -1,4 +1,4 @@
-# PRD — Forge ERP UI Platform
+# Product Requirements
 
 ## Objective
 Create a reusable ERP UI platform for transaction-heavy applications.
@@ -12,6 +12,13 @@ Create a reusable ERP UI platform for transaction-heavy applications.
 - Zero copy-paste transaction forms
 - Safe module reuse
 - Configurable presentation without business logic drift
+
+## Product principles
+- Deterministic structure, configurable presentation, module-owned logic.
+- UI consumes resolved definitions, never raw manifests or raw instance config.
+- TransactionGrid is an interaction engine, not a business engine.
+- Validation never blocks navigation; save is blocked by unresolved errors.
+- Async work belongs in lookup, enrichment, and authoritative validation flows.
 
 ## In scope
 - TransactionShell
@@ -51,4 +58,7 @@ Create a reusable ERP UI platform for transaction-heavy applications.
 - If it needs custom UI beyond config-driven presentation, it must be treated as an explicit platform extension rather than ad hoc branching
 - Customer-specific needs should first be framed as reusable platform or module extensions, not one-off exceptions
 
-See also: ADR-005 for platform expansion governance, `CustomWidget` usage limits, and the Rule of Three for new primitives.
+## Related documents
+- [Architecture](architecture.md)
+- [ADR-005: Platform Expansion & Customization Governance](decisions/adr-005-platform-expansion-customization-governance.md)
+- [CustomWidget Contract](spec/platform/custom-widget.md)
