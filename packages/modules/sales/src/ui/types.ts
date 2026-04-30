@@ -65,7 +65,7 @@ export interface SalesInvoiceScreenViewModel {
     fields: SalesInvoiceFieldView[];
   };
   grid: {
-    columns: Array<{ id: string; label: string; kind: string }>;
+    columns: Array<{ id: string; label: string; kind: string; width?: number }>;
     mode: GridEditMode;
     focus: { rowId: string; columnId: string };
     rows: SalesInvoiceRowView[];

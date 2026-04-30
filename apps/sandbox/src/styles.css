@@ -162,6 +162,39 @@ h2 {
   padding-inline: 8px;
 }
 
+.lookupInput-standalone .bp6-input {
+  padding-right: 32px;
+}
+
+.lookupInput-standalone .bp6-input-action {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  margin: 0;
+}
+
+.lookupInput-standalone .lookupInputButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+}
+
+.lookupInput-standalone .lookupInputButton .bp6-icon,
+.lookupInput-standalone .lookupInputButton svg {
+  width: 16px;
+  height: 16px;
+}
+
 .bp6-form-group {
   margin: 0;
 }
@@ -204,39 +237,226 @@ h2 {
   margin: 0;
 }
 
-.tableWrap {
+.denseGridWrap {
   min-height: 0;
   overflow: auto;
+  border: 1px solid #c5cbd3;
+  border-radius: 4px;
+  background: #ffffff;
+  scrollbar-color: #8f99a8 #f1f4f8;
 }
 
-table {
+.denseGrid {
+  min-width: 1040px;
   width: 100%;
-  min-width: 980px;
+  color: #1c2127;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
 }
 
-th,
-td {
-  padding: 4px 6px;
-  vertical-align: top;
+.denseGridHeader,
+.denseGridRow {
+  display: grid;
+  grid-template-columns: var(--dense-grid-columns);
 }
 
-tbody tr[data-phantom="true"] {
+.denseGridHeader {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #eef1f5;
+  border-bottom: 1px solid #c5cbd3;
+  box-shadow: 0 1px 0 rgba(17, 20, 24, 0.04);
+}
+
+.denseGridHeaderCell,
+.denseGridCell {
+  min-width: 0;
+  border-right: 1px solid #d3d8de;
+}
+
+.denseGridHeaderCell:last-child,
+.denseGridCell:last-child {
+  border-right: 0;
+}
+
+.denseGridHeaderCell {
+  display: grid;
+  align-content: center;
+  min-height: 48px;
+  padding: 5px 8px;
+  color: #1c2127;
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.denseGridHeaderCell strong,
+.denseGridHeaderCell span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.denseGridHeaderCell strong {
+  font-size: 0.9rem;
+}
+
+.denseGridHeaderCell span {
+  color: #5f6b7c;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.denseGridRow {
+  min-height: 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e5ea;
+}
+
+.denseGridRow:nth-child(even) {
+  background: #f8fafc;
+}
+
+.denseGridRow:last-child {
+  border-bottom: 0;
+}
+
+.denseGridRow[data-phantom="true"] {
   background: #eef6ff;
+}
+
+.denseGridCell {
+  min-height: 20px;
+  padding: 0;
+}
+
+.denseGridRowMeta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 5px;
+  background: #f1f4f8;
+  color: #5f6b7c;
+  font-size: 0.76rem;
+  line-height: 20px;
+}
+
+.denseGridRow[data-phantom="true"] .denseGridRowMeta {
+  color: #215db0;
+}
+
+.denseGrid .cellEditor {
+  min-height: 20px;
+  gap: 2px;
+  width: 100%;
+}
+
+.denseGrid .bp6-input,
+.denseGrid .bp6-html-select select {
+  width: 100%;
+  min-height: 20px;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none !important;
+  color: #1c2127;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.denseGrid .bp6-input-group {
+  width: 100%;
+  height: 20px;
+  min-height: 20px;
+  border-radius: 0;
+}
+
+.denseGrid .bp6-html-select {
+  width: 100%;
+}
+
+.denseGrid .lookupInput-dense {
+  height: 20px;
+  min-height: 20px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.denseGrid .lookupInput-dense .bp6-input::placeholder {
+  color: #8f99a8;
+}
+
+.denseGrid .lookupInput-dense .bp6-input {
+  padding-left: 7px;
+  padding-right: 21px;
+}
+
+.denseGrid .lookupInput-dense .bp6-input-action {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.denseGrid .lookupInput-dense .lookupInputButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  height: 18px;
+  padding: 0;
+  color: #5f6b7c;
+  line-height: 18px;
+  box-shadow: none;
+  background: transparent;
+}
+
+.denseGrid .lookupInput-dense .lookupInputButton .bp6-icon,
+.denseGrid .lookupInput-dense .lookupInputButton svg {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+}
+
+.denseGrid .bp6-html-select {
+  min-height: 20px;
+}
+
+.denseGrid .bp6-html-select select {
+  padding: 0 18px 0 7px;
+}
+
+.denseGrid small {
+  display: block;
+  padding: 2px 7px 3px;
+  line-height: 1.2;
 }
 
 .cellEditor.focused .bp6-input,
 .cellEditor.focused .bp6-html-select select {
-  box-shadow: 0 0 0 1px #215db0, 0 0 0 3px rgba(33, 93, 176, 0.2);
+  box-shadow: inset 0 0 0 2px #2d72d2 !important;
 }
 
 .cellEditor.invalid .bp6-input,
 .cellEditor.invalid .bp6-html-select select {
-  box-shadow: 0 0 0 1px #c23030;
+  box-shadow: inset 0 0 0 2px #cd4246;
 }
 
 .cellEditor.stale .bp6-input,
 .cellEditor.stale .bp6-html-select select {
-  box-shadow: 0 0 0 1px #c87619;
+  box-shadow: inset 0 0 0 2px #d9822b;
 }
 
 .footerStat {

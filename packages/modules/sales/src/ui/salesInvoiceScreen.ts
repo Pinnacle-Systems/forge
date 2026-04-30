@@ -131,7 +131,12 @@ export function createSalesInvoiceScreen(
         grid: {
           columns: definition.grid.columns
             .filter((column) => column.visible)
-            .map((column) => ({ id: column.id, label: column.label, kind: column.kind })),
+            .map((column) => ({
+              id: column.id,
+              label: column.label,
+              kind: column.kind,
+              ...(column.width !== undefined ? { width: column.width } : {}),
+            })),
           mode: snapshot.mode,
           focus: snapshot.focus,
           rows: snapshot.rows.map((row) => mapRowView(row, definition.grid.columns)),

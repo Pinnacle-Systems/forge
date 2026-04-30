@@ -1,4 +1,5 @@
 import { startTransition, useDeferredValue, useEffect, useRef, useState } from 'react';
+import type { CSSProperties, KeyboardEvent } from 'react';
 import {
   Button,
   ButtonGroup,
@@ -6,7 +7,6 @@ import {
   Card,
   FormGroup,
   HTMLSelect,
-  HTMLTable,
   InputGroup,
   Intent,
   Tag,
@@ -264,69 +264,38 @@ export function SandboxApp() {
               <h2>Grid</h2>
             </div>
           </div>
-          <div className="tableWrap">
-            <HTMLTable compact striped interactive={false}>
-              <thead>
-                <tr>
-                  <th>Row</th>
-                  {viewModel.grid.columns.map((column) => (
-                    <th key={column.id}>{column.label}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {viewModel.grid.rows.map((row) => (
-                  <tr key={row.id} data-phantom={row.isPhantom}>
-                    <td>
-                      <strong>{row.id}</strong>
-                      <div>{row.isPhantom ? 'phantom' : row.state ?? 'active'}</div>
-                    </td>
-                    {row.cells.map((cell) => (
-                      <td key={cell.id}>
-                        <GridCellEditor
-                          row={row}
-                          cell={cell}
-                          isFocused={
-                            viewModel.grid.focus.rowId === row.id && viewModel.grid.focus.columnId === cell.id
-                          }
-                          refKey={`${row.id}:${cell.id}`}
-                          setGridRef={(element) => {
-                            gridRefs.current[`${row.id}:${cell.id}`] = element;
-                          }}
-                          lookupState={rowLookupState[`${row.id}:${cell.id}`]}
-                          onFocus={() => screen.moveFocus(row.id, cell.id)}
-                          onKeyboard={async (event) => {
-                            const result = await screen.handleKeyboardEvent(event);
-                            if (result) {
-                              setStatusMessage(`Keyboard command result: ${result.status}`);
-                            }
-                          }}
-                          onLookupQueryChange={(query) => {
-                            const lookupKey = `${row.id}:${cell.id}`;
-                            setRowLookupState((current) => ({
-                              ...current,
-                              [lookupKey]: {
-                                query,
-                                results: current[lookupKey]?.results ?? [],
-                                loading: current[lookupKey]?.loading ?? false,
-                                error: undefined,
-                              },
-                            }));
-                          }}
-                          onLookupSearch={() => refreshRowLookup(row.id, cell.id)}
-                          onLookupSelect={(entityId) => applyRowLookup(row.id, cell.id, entityId)}
-                          onValueCommit={(value) => {
-                            screen.editCell(row.id, cell.id, coerceValue(cell.kind, value));
-                            setStatusMessage(`Committed ${cell.id} for row "${row.id}".`);
-                          }}
-                        />
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </HTMLTable>
-          </div>
+          <DenseTransactionGrid
+            grid={viewModel.grid}
+            rowLookupState={rowLookupState}
+            setGridRef={(rowId, cellId, element) => {
+              gridRefs.current[`${rowId}:${cellId}`] = element;
+            }}
+            onCellFocus={(rowId, cellId) => screen.moveFocus(rowId, cellId)}
+            onKeyboard={async (event) => {
+              const result = await screen.handleKeyboardEvent(event);
+              if (result) {
+                setStatusMessage(`Keyboard command result: ${result.status}`);
+              }
+            }}
+            onLookupQueryChange={(rowId, cellId, query) => {
+              const lookupKey = `${rowId}:${cellId}`;
+              setRowLookupState((current) => ({
+                ...current,
+                [lookupKey]: {
+                  query,
+                  results: current[lookupKey]?.results ?? [],
+                  loading: current[lookupKey]?.loading ?? false,
+                  error: undefined,
+                },
+              }));
+            }}
+            onLookupSearch={(rowId, cellId) => refreshRowLookup(rowId, cellId)}
+            onLookupSelect={(rowId, cellId, entityId) => applyRowLookup(rowId, cellId, entityId)}
+            onValueCommit={(rowId, cellId, kind, value) => {
+              screen.editCell(rowId, cellId, coerceValue(kind, value));
+              setStatusMessage(`Committed ${cellId} for row "${rowId}".`);
+            }}
+          />
         </Card>
 
         <Card className="card footerCard" compact>
@@ -350,6 +319,116 @@ export function SandboxApp() {
   );
 }
 
+function DenseTransactionGrid(props: {
+  grid: SalesInvoiceScreenViewModel['grid'];
+  rowLookupState: RowLookupState;
+  setGridRef: (rowId: string, cellId: string, element: HTMLInputElement | HTMLSelectElement | null) => void;
+  onCellFocus: (rowId: string, cellId: string) => void;
+  onKeyboard: (event: {
+    key: string;
+    ctrlKey?: boolean;
+    metaKey?: boolean;
+    shiftKey?: boolean;
+    altKey?: boolean;
+  }) => Promise<void>;
+  onLookupQueryChange: (rowId: string, cellId: string, query: string) => void;
+  onLookupSearch: (rowId: string, cellId: string) => void;
+  onLookupSelect: (rowId: string, cellId: string, entityId: string) => void;
+  onValueCommit: (rowId: string, cellId: string, kind: string, value: string) => void;
+}) {
+  const columnTracks = props.grid.columns
+    .map((column) => `minmax(${Math.max(column.width ?? 150, 72)}px, 1fr)`)
+    .join(' ');
+  const gridTemplateColumns = `30px ${columnTracks}`;
+  const style = { '--dense-grid-columns': gridTemplateColumns } as CSSProperties;
+
+  return (
+    <div className="denseGridWrap">
+      <div className="denseGrid" role="table" aria-label="Transaction grid" style={style}>
+        <div className="denseGridHeader" role="row">
+          <div className="denseGridHeaderCell denseGridRowHeader" role="columnheader" aria-label="Rows" />
+          {props.grid.columns.map((column) => (
+            <div className="denseGridHeaderCell" role="columnheader" key={column.id}>
+              <strong>{column.label}</strong>
+              <span>{column.kind}</span>
+            </div>
+          ))}
+        </div>
+        <div className="denseGridBody" role="rowgroup">
+          {props.grid.rows.map((row, rowIndex) => (
+            <div className="denseGridRow" role="row" data-phantom={row.isPhantom} key={row.id}>
+              <div
+                className="denseGridCell denseGridRowMeta"
+                role="rowheader"
+                title={`${row.id} - ${row.isPhantom ? 'phantom' : row.state ?? 'active'}`}
+              >
+                {rowIndex + 1}
+              </div>
+              {row.cells.map((cell) => (
+                <div className="denseGridCell" role="cell" key={cell.id}>
+                  <GridCellEditor
+                    row={row}
+                    cell={cell}
+                    isFocused={props.grid.focus.rowId === row.id && props.grid.focus.columnId === cell.id}
+                    refKey={`${row.id}:${cell.id}`}
+                    setGridRef={(element) => props.setGridRef(row.id, cell.id, element)}
+                    lookupState={props.rowLookupState[`${row.id}:${cell.id}`]}
+                    onFocus={() => props.onCellFocus(row.id, cell.id)}
+                    onKeyboard={props.onKeyboard}
+                    onLookupQueryChange={(query) => props.onLookupQueryChange(row.id, cell.id, query)}
+                    onLookupSearch={() => props.onLookupSearch(row.id, cell.id)}
+                    onLookupSelect={(entityId) => props.onLookupSelect(row.id, cell.id, entityId)}
+                    onValueCommit={(value) => props.onValueCommit(row.id, cell.id, cell.kind, value)}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LookupInput(props: {
+  id?: string;
+  mode: 'standalone' | 'dense';
+  value?: string;
+  defaultValue?: string;
+  placeholder?: string;
+  loading?: boolean;
+  inputRef?: (element: HTMLInputElement | null) => void;
+  onFocus?: () => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
+  onSearch: () => void;
+}) {
+  return (
+    <InputGroup
+      id={props.id}
+      className={`lookupInput lookupInput-${props.mode}`}
+      inputRef={props.inputRef}
+      value={props.value}
+      defaultValue={props.defaultValue}
+      onFocus={props.onFocus}
+      onKeyDown={props.onKeyDown}
+      onChange={(event) => props.onChange(event.target.value)}
+      placeholder={props.placeholder}
+      rightElement={
+        <Button
+          type="button"
+          className="lookupInputButton"
+          icon="search"
+          loading={props.loading}
+          minimal
+          onClick={props.onSearch}
+        />
+      }
+      fill
+    />
+  );
+}
+
 function HeaderFieldEditor(props: {
   field: SalesInvoiceFieldView;
   lookupState?: { query: string; results: LookupResultItem[]; loading: boolean; error?: string };
@@ -364,21 +443,14 @@ function HeaderFieldEditor(props: {
     return (
       <div className="field">
         <FormGroup label={field.label} labelFor={`header-${field.id}`}>
-        <InputGroup
+        <LookupInput
           id={`header-${field.id}`}
+          mode="standalone"
           value={lookupState?.query ?? ''}
-          onChange={(event) => props.onLookupQueryChange(event.target.value)}
           placeholder={`Search ${field.label}`}
-          rightElement={
-            <Button
-              type="button"
-              icon="search"
-              loading={lookupState?.loading}
-              minimal
-              onClick={props.onLookupSearch}
-            />
-          }
-          fill
+          loading={lookupState?.loading}
+          onChange={props.onLookupQueryChange}
+          onSearch={props.onLookupSearch}
         />
         </FormGroup>
         {(lookupState?.results.length ?? 0) > 0 ? (
@@ -443,7 +515,8 @@ function GridCellEditor(props: {
   if (cell.kind === 'lookup') {
     return (
       <div className={className}>
-        <InputGroup
+        <LookupInput
+          mode="dense"
           inputRef={props.setGridRef}
           defaultValue={lookupState?.query ?? ''}
           onFocus={props.onFocus}
@@ -459,18 +532,10 @@ function GridCellEditor(props: {
               altKey: event.altKey,
             });
           }}
-          onChange={(event) => props.onLookupQueryChange(event.target.value)}
+          onChange={props.onLookupQueryChange}
           placeholder={String(cell.value ?? 'Search')}
-          rightElement={
-            <Button
-              type="button"
-              icon="search"
-              loading={lookupState?.loading}
-              minimal
-              onClick={props.onLookupSearch}
-            />
-          }
-          fill
+          loading={lookupState?.loading}
+          onSearch={props.onLookupSearch}
         />
         {(lookupState?.results.length ?? 0) > 0 ? (
           <HTMLSelect fill onChange={(event) => event.target.value && props.onLookupSelect(event.target.value)} defaultValue="">
